@@ -1,36 +1,20 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
-import React from 'react';
+import React, { Component } from 'react';
+import { Menu } from 'semantic-ui-react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Sidebar.css';
 
-class Sidebar extends React.Component {
+class Sidebar extends Component {
+  state = { activeItem: 'home' };
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
   render() {
+    const { activeItem } = this.state;
     return (
-      <div className={s.root}>
-        <div className={s.container}>
-          <a
-            className={s.link}
-            href="https://gitter.im/kriasoft/react-starter-kit"
-          >
-            Ask a question
-          </a>
-          <span className={s.spacer}>|</span>
-          <a
-            className={s.link}
-            href="https://github.com/kriasoft/react-starter-kit/issues/new"
-          >
-            Report an issue
-          </a>
-        </div>
-      </div>
+      <Menu pointing secondary vertical>
+        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+        <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
+        <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
+      </Menu>
     );
   }
 }
