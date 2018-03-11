@@ -10,12 +10,10 @@ class Header extends React.Component {
   };
 
   searchFocused() {
-    console.log("Search focused");
     this.setState({searchFocus: true});
   }
 
   searchBlurred() {
-    console.log("Search blurred");
     this.setState({searchFocus: false});
   }
 
