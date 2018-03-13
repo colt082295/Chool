@@ -39,7 +39,7 @@ class Layout extends React.Component {
             activeItem={this.state.sidebarActiveItem}
             changeActiveItem={this.changeSidebarActiveItem.bind(this)}
           />
-          <div>{this.props.children}</div>
+          <div className={s.main}>{this.props.children}</div>
         </div>
       </div>
     );

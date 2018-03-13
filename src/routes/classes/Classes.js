@@ -1,5 +1,6 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import ClassesComponent from '../../components/Classes/Classes';
 import s from './Classes.css';
 
 class Classes extends React.Component {
@@ -7,7 +8,7 @@ class Classes extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <h1>Classes</h1>
+          <ClassesComponent />
         </div>
       </div>
     );

@@ -1,0 +1,15 @@
+@import '../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.tabBody {
+  box-shadow: 0 0 0 !important;
+  border: 0 !important;
+}
+
+:global(.tabMenu .item) {
+  flex: 1 !important;
+  justify-content: center;
+}
