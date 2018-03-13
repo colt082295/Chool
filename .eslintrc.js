@@ -45,6 +45,15 @@ module.exports = {
         allow: ['warn', 'error', 'info'],
       },
     ],
+    'react/jsx-no-bind': [
+      true,
+      {
+        ignoreRefs: true,
+        allowArrowFunctions: true,
+        allowFunctions: true,
+        allowBind: true,
+      },
+    ],
 
     // Prefer destructuring from arrays and objects
     // http://eslint.org/docs/rules/prefer-destructuring

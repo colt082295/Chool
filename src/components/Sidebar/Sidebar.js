@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Menu } from 'semantic-ui-react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import Link from '../Link/Link';
 import s from './Sidebar.css';
 
 class Sidebar extends Component {
@@ -20,20 +21,23 @@ class Sidebar extends Component {
       <div className={s.sidebar}>
         <Menu pointing secondary vertical fluid>
           <Menu.Item
+            as={Link}
             name="home"
+            to="/"
             active={activeItem === 'home'}
             onClick={this.sidebarItemClicked}
-          />
+          >
+            Home
+          </Menu.Item>
           <Menu.Item
-            name="messages"
-            active={activeItem === 'messages'}
+            as={Link}
+            name="classes"
+            to="/classes"
+            active={activeItem === 'classes'}
             onClick={this.sidebarItemClicked}
-          />
-          <Menu.Item
-            name="friends"
-            active={activeItem === 'friends'}
-            onClick={this.sidebarItemClicked}
-          />
+          >
+            Classes
+          </Menu.Item>
         </Menu>
       </div>
     );
