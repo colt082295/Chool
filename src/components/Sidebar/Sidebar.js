@@ -26,6 +26,7 @@ class Sidebar extends Component {
             to="/"
             active={activeItem === 'home'}
             onClick={this.sidebarItemClicked}
+            className={s.sidebarItem}
           >
             Home
           </Menu.Item>
@@ -35,8 +36,19 @@ class Sidebar extends Component {
             to="/classes"
             active={activeItem === 'classes'}
             onClick={this.sidebarItemClicked}
+            className={s.sidebarItem}
           >
             Classes
+          </Menu.Item>
+          <Menu.Item
+            as={Link}
+            name="assignments"
+            to="/assignments"
+            active={activeItem === 'assignments'}
+            onClick={this.sidebarItemClicked}
+            className={s.sidebarItem}
+          >
+            Assignments
           </Menu.Item>
         </Menu>
       </div>

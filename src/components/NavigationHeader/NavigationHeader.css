@@ -1,0 +1,19 @@
+@import '../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.navigation {
+  display: flex;
+  margin-bottom: 1.5em;
+}
+
+.dateRange {
+  flex: 1;
+  align-self: center;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #656565;
+}

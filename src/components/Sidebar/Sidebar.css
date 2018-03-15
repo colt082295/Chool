@@ -2,4 +2,13 @@
 
 .sidebar {
   width: 15vw;
+  background: grey;
+}
+
+/* .sidebar > .menu > .item {
+  color: white !important;
+} */
+
+.sidebarItem {
+  color: white !important;
 }
