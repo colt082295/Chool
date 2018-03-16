@@ -63,6 +63,14 @@ class ClassComponent extends React.Component {
         ),
       },
       {
+        menuItem: 'Feed',
+        render: () => (
+          <Tab.Pane className={s.tabBody} attached={false}>
+            Feed
+          </Tab.Pane>
+        ),
+      },
+      {
         menuItem: 'Grades',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
@@ -79,10 +87,18 @@ class ClassComponent extends React.Component {
         ),
       },
       {
-        menuItem: 'Feed',
+        menuItem: 'Files',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            Feed
+            Files
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: 'Calendar',
+        render: () => (
+          <Tab.Pane className={s.tabBody} attached={false}>
+            Calendar
           </Tab.Pane>
         ),
       },

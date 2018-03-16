@@ -2,11 +2,34 @@ import React from 'react';
 import { Tab } from 'semantic-ui-react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Link from '../Link/Link';
+import File from '../File/File';
 import s from './Classes.css';
 
 class Classes extends React.Component {
   render() {
     const classes = ['English', 'Math', 'Geography'];
+    const files = [
+      {
+        title: 'File 1',
+        uploadedBy: 'Colton Travers',
+      },
+      {
+        title: 'File 2',
+        uploadedBy: 'Jenny Amberson',
+      },
+      {
+        title: 'File 3',
+        uploadedBy: 'Thomas Anderson',
+      },
+      {
+        title: 'File 4',
+        uploadedBy: 'Jarrod Ludwig',
+      },
+      {
+        title: 'File 5',
+        uploadedBy: 'April Ludgate',
+      },
+    ];
 
     const panes = [
       {
@@ -29,10 +52,18 @@ class Classes extends React.Component {
         ),
       },
       {
+        menuItem: 'Feed',
+        render: () => (
+          <Tab.Pane className={s.tabBody} attached={false}>
+            Feed
+          </Tab.Pane>
+        ),
+      },
+      {
         menuItem: 'Grades',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            Tab 2 Content
+            Grades
           </Tab.Pane>
         ),
       },
@@ -40,7 +71,31 @@ class Classes extends React.Component {
         menuItem: 'Assignments',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            Tab 3 Content
+            Assignments
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: 'Files',
+        render: () => (
+          <Tab.Pane className={s.tabBody} attached={false}>
+            <div className={s.files}>
+              {files.map((item, i) => (
+                <File
+                  title={item.title}
+                  uploadedBy={item.uploadedBy}
+                  key={i.toString()}
+                />
+              ))}
+            </div>
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: 'Calendar',
+        render: () => (
+          <Tab.Pane className={s.tabBody} attached={false}>
+            Calendar
           </Tab.Pane>
         ),
       },
