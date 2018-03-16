@@ -1,4 +1,4 @@
-This is a web app for schools built with React. This is in it's very beginning design, etc stages. This will allow for users etc to view grades/assignments, talk to others, share files, etc. Below you can find how to run it.
+This is a web app for schools built with React. This is in it's very beginning design, etc stages. This will allow for users to view grades/assignments, talk to others, share files, etc. Below you can find how to run it.
 
 ---
 
