@@ -2,10 +2,10 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import PropTypes from 'prop-types';
 import NavigationHeader from '../../components/NavigationHeader/NavigationHeader';
-import AssignmentComponent from '../../components/Assignment/Assignment';
-import s from './Assignments.css';
+import GradesComponent from '../../components/Grade/Grade';
+import s from './Grades.css';
 
-class Assignments extends React.Component {
+class Grades extends React.Component {
   static propTypes = {
     data: PropTypes.instanceOf(Array).isRequired,
   };
@@ -17,7 +17,7 @@ class Assignments extends React.Component {
           <NavigationHeader />
           <div className={s.grid}>
             {this.props.data.map((assignment, i) => (
-              <AssignmentComponent
+              <GradesComponent
                 title={assignment.title}
                 grade={assignment.grade}
                 dueDate={assignment.dueDate}
@@ -32,4 +32,4 @@ class Assignments extends React.Component {
   }
 }
 
-export default withStyles(s)(Assignments);
+export default withStyles(s)(Grades);

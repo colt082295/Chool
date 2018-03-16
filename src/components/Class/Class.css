@@ -14,17 +14,22 @@
   justify-content: center;
 }
 
-.class {
-  box-shadow: 0 0 0 1px silver;
-  padding: 0.5em;
-  background: whitesmoke;
-  border-radius: 2px;
-  margin: 1em;
-  color: black;
-  transition: all 0.1s ease-in-out;
+.students {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-gap: 1.5em;
+  padding: 2em 0;
 }
 
-.class:hover {
-  box-shadow: 0 0 0 2px silver;
-  background: #dbdada;
+.student {
+  box-shadow: 0 0 0 1px #bdbdbd;
+  border-radius: 2px;
+}
+
+.avatar {
+  width: 100%;
+}
+
+.name {
+  text-align: center;
 }

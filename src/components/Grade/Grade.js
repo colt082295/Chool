@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Link from '../Link/Link';
-import s from './Assignment.css';
+import s from './Grade.css';
 
-class Assignment extends React.Component {
+class Grade extends React.Component {
   static propTypes = {
     title: PropTypes.node.isRequired,
     grade: PropTypes.node.isRequired,
@@ -16,7 +16,6 @@ class Assignment extends React.Component {
 
   state = {
     dueDate: moment(this.props.dueDate).format('MMM Do YY'),
-    dueDatePassed: moment(this.props.dueDate).isBefore(new Date()),
     letterGrade: this.gradeLetter(),
     classNameLowerCase: this.props.class.toLowerCase(),
     colorKey: {
@@ -66,18 +65,11 @@ class Assignment extends React.Component {
     return 'F';
   }
 
-  datePassed() {
-    if (this.state.dueDatePassed) {
-      return s.datePassed;
-    }
-    return '';
-  }
-
   render() {
     return (
-      <div className={s.assignment}>
+      <div className={s.grade}>
         <div className={s.gradeWrapper}>
-          <div className={s.grade}>{this.props.grade}</div>
+          <div className={s.gradeText}>{this.props.grade}</div>
           <div
             className={s.gradeLetter}
             style={{
@@ -98,8 +90,7 @@ class Assignment extends React.Component {
           <div className={s.assignmentTitle}>{this.props.title}</div>
         </div>
         <div className={s.dateInfo}>
-          Due:
-          <span className={`${s.date} ${this.datePassed()}`}>
+          <span className={`${s.date} ${s.datePassed}`}>
             {this.state.dueDate}
           </span>
         </div>
@@ -108,4 +99,4 @@ class Assignment extends React.Component {
   }
 }
 
-export default withStyles(s)(Assignment);
+export default withStyles(s)(Grade);

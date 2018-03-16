@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Dropdown } from 'semantic-ui-react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Link from '../Link/Link';
 import s from './Sidebar.css';
@@ -30,16 +30,32 @@ class Sidebar extends Component {
           >
             Home
           </Menu.Item>
-          <Menu.Item
-            as={Link}
-            name="classes"
-            to="/classes"
-            active={activeItem === 'classes'}
-            onClick={this.sidebarItemClicked}
-            className={s.sidebarItem}
-          >
-            Classes
-          </Menu.Item>
+          <Dropdown item text="Classes" className={s.sidebarItem}>
+            <Dropdown.Menu>
+              <Dropdown.Item
+                as={Link}
+                to="/class/english"
+                onClick={this.sidebarItemClicked}
+                active={activeItem === 'class-english'}
+              >
+                English
+              </Dropdown.Item>
+              <Dropdown.Item
+                as={Link}
+                to="/class/math"
+                active={activeItem === 'class-math'}
+              >
+                Math
+              </Dropdown.Item>
+              <Dropdown.Item
+                as={Link}
+                to="/class/geography"
+                active={activeItem === 'class-geography'}
+              >
+                Geography
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           <Menu.Item
             as={Link}
             name="assignments"
@@ -49,6 +65,16 @@ class Sidebar extends Component {
             className={s.sidebarItem}
           >
             Assignments
+          </Menu.Item>
+          <Menu.Item
+            as={Link}
+            name="grades"
+            to="/grades"
+            active={activeItem === 'grades'}
+            onClick={this.sidebarItemClicked}
+            className={s.sidebarItem}
+          >
+            Grades
           </Menu.Item>
         </Menu>
       </div>
