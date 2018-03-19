@@ -33,3 +33,72 @@
 .name {
   text-align: center;
 }
+
+.files {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1.5em;
+}
+
+.assignments {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5em;
+}
+
+.grades {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5em;
+}
+
+.feedGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5em;
+}
+
+.timeline {
+  display: flex;
+  margin: 1.5em 0;
+}
+
+.timelineBefore {
+  position: relative;
+  width: 7%;
+}
+
+.timelineBefore::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  height: 2px;
+  width: 100%;
+  background: #c3c3c3;
+}
+
+.timelineDate {
+  padding: 0 1em;
+  font-weight: 600;
+  color: #4799ff;
+  text-shadow: 0 0 0.1px black;
+  letter-spacing: 1px;
+}
+
+.timelineAfter {
+  position: relative;
+  flex: 1;
+}
+
+.timelineAfter::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  height: 2px;
+  width: 100%;
+  background: #c3c3c3;
+}

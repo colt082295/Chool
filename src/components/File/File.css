@@ -12,8 +12,11 @@
   border-radius: 2px;
 }
 
-.title {
+.fileLink {
   flex: 1;
+}
+
+.title {
   text-align: center;
   font-size: 1.3rem;
   font-weight: 600;

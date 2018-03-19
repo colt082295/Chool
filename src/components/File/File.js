@@ -13,13 +13,15 @@ class File extends React.Component {
 
   render() {
     return (
-      <Link className={s.file} to="/file/file">
-        <div className={s.title}>{this.props.title}</div>
+      <div className={s.file}>
+        <Link className={s.fileLink} to="/file/file">
+          <div className={s.title}>{this.props.title}</div>
+        </Link>
         <div className={s.uploader}>
           <span className={s.by}>By: </span>
           <Link to="/user/user">{this.props.uploadedBy}</Link>
         </div>
-      </Link>
+      </div>
     );
   }
 }

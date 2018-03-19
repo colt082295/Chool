@@ -18,7 +18,9 @@ class Assignment extends React.Component {
     dueDate: moment(this.props.dueDate).format('MMM Do YY'),
     dueDatePassed: moment(this.props.dueDate).isBefore(new Date()),
     letterGrade: this.gradeLetter(),
-    classNameLowerCase: this.props.class.toLowerCase(),
+    classNameLowerCase: this.props.class
+      ? this.props.class.toLowerCase()
+      : null,
     colorKey: {
       'A+': 'rgb(27, 189, 27)',
       A: 'rgb(37, 152, 37)',

@@ -1,26 +1,26 @@
 import React from 'react';
 import _ from 'lodash';
+import moment from 'moment';
 import { Tab, Search } from 'semantic-ui-react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Link from '../Link/Link';
+import File from '../File/File';
+import Assignment from '../Assignment/Assignment';
+import Grade from '../Grade/Grade';
+import Data from './data';
 import s from './Class.css';
 
 class ClassComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.feedGrades = this.feedGrades.bind(this);
+    this.feedAssignments = this.feedAssignments.bind(this);
+  }
   state = {
     isLoading: false,
     results: [],
     value: '',
-    students: [
-      {
-        name: 'Colton Travers',
-      },
-      {
-        name: 'Jarrod Goff',
-      },
-      {
-        name: 'April Ludgate',
-      },
-    ],
+    students: Data.students,
   };
   componentWillMount() {
     this.resetComponent();
@@ -51,22 +51,63 @@ class ClassComponent extends React.Component {
     }, 500);
   };
 
+  /* eslint-disable class-methods-use-this */
+  feedGrades(grades) {
+    return grades.map((grade, i) => (
+      <Grade
+        title={grade.title}
+        grade={grade.grade}
+        dueDate={grade.dueDate}
+        class={grade.class}
+        key={i.toString()}
+      />
+    ));
+  }
+
+  feedAssignments(assignments) {
+    return assignments.map((assignment, i) => (
+      <Assignment
+        title={assignment.title}
+        grade={assignment.grade}
+        dueDate={assignment.dueDate}
+        class={assignment.class}
+        key={i.toString()}
+      />
+    ));
+  }
+  /* eslint-enable class-methods-use-this */
+
   render() {
+    const { files, assignments, grades, feed } = Data;
     const { isLoading, value, results } = this.state;
     const panes = [
-      {
-        menuItem: 'Summary',
-        render: () => (
-          <Tab.Pane className={s.tabBody} attached={false}>
-            Summary
-          </Tab.Pane>
-        ),
-      },
       {
         menuItem: 'Feed',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            Feed
+            {feed.map(item => [
+              <div>
+                <div className={s.timeline}>
+                  <span className={s.timelineBefore} />
+                  <div className={s.timelineDate}>
+                    {moment(feed.date).format('dddd, MMMM Do')}
+                  </div>
+                  <span className={s.timelineAfter} />
+                </div>
+                <div className={s.feedGrid}>
+                  {this.feedGrades(item.content.grades)}
+                  {this.feedAssignments(item.content.assignments)}
+                </div>
+              </div>,
+            ])}
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: 'Posts',
+        render: () => (
+          <Tab.Pane className={s.tabBody} attached={false}>
+            Posts
           </Tab.Pane>
         ),
       },
@@ -74,7 +115,17 @@ class ClassComponent extends React.Component {
         menuItem: 'Grades',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            Grades
+            <div className={s.grades}>
+              {grades.map((grade, i) => (
+                <Grade
+                  title={grade.title}
+                  grade={grade.grade}
+                  dueDate={grade.dueDate}
+                  class={grade.class}
+                  key={i.toString()}
+                />
+              ))}
+            </div>
           </Tab.Pane>
         ),
       },
@@ -82,7 +133,17 @@ class ClassComponent extends React.Component {
         menuItem: 'Assignments',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            Assignments
+            <div className={s.assignments}>
+              {assignments.map((assignment, i) => (
+                <Assignment
+                  title={assignment.title}
+                  grade={assignment.grade}
+                  dueDate={assignment.dueDate}
+                  class={assignment.class}
+                  key={i.toString()}
+                />
+              ))}
+            </div>
           </Tab.Pane>
         ),
       },
@@ -90,7 +151,15 @@ class ClassComponent extends React.Component {
         menuItem: 'Files',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            Files
+            <div className={s.files}>
+              {files.map((item, i) => (
+                <File
+                  title={item.title}
+                  uploadedBy={item.uploadedBy}
+                  key={i.toString()}
+                />
+              ))}
+            </div>
           </Tab.Pane>
         ),
       },
