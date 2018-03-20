@@ -34,7 +34,9 @@ module.exports = {
   rules: {
     // Forbid the use of extraneous packages
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
-    'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
+    'import/no-extraneous-dependencies': {
+      moduleDirectories: ['./'],
+    },
 
     // Recommend not to leave any console.log in your code
     // Use console.error, console.warn and console.info instead
@@ -84,7 +86,6 @@ module.exports = {
         aspects: ['noHref', 'invalidHref', 'preferButton'],
       },
     ],
-
     // Allow .js files to use JSX syntax
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
