@@ -8,6 +8,7 @@ import File from '../File/File';
 import Assignment from '../Assignment/Assignment';
 import Grade from '../Grade/Grade';
 import Data from './data';
+import Calendar from '../Calendar/Calendar';
 import s from './Class.css';
 
 class ClassComponent extends React.Component {
@@ -78,15 +79,15 @@ class ClassComponent extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { files, assignments, grades, feed } = Data;
+    const { files, assignments, grades, feed, events } = Data;
     const { isLoading, value, results } = this.state;
     const panes = [
       {
         menuItem: 'Feed',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            {feed.map(item => [
-              <div>
+            {feed.map((item, i) => [
+              <div key={i.toString()}>
                 <div className={s.timeline}>
                   <span className={s.timelineBefore} />
                   <div className={s.timelineDate}>
@@ -167,7 +168,7 @@ class ClassComponent extends React.Component {
         menuItem: 'Calendar',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            Calendar
+            <Calendar events={events} />
           </Tab.Pane>
         ),
       },

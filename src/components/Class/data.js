@@ -81,10 +81,12 @@ const Data = {
           {
             title: 'Spelling Homework: A - H',
             dueDate: new Date('March 19, 2018'),
+            class: 'English',
           },
           {
             title: 'Math Quiz',
             dueDate: new Date('March 20, 2018'),
+            class: 'Math',
           },
         ],
         files: [
@@ -229,6 +231,20 @@ const Data = {
       body: 'This is a post made by a user.',
       user: 'Jarrod Ludwig',
       date: new Date(),
+    },
+  ],
+  events: [
+    {
+      id: 1,
+      title: 'Math Quiz',
+      start: new Date(2018, 2, 20, 7, 0, 0),
+      end: new Date(2018, 2, 20, 8, 0, 0),
+    },
+    {
+      id: 2,
+      title: 'Spelling Test',
+      start: new Date(2018, 2, 21, 19, 30, 0),
+      end: new Date(2018, 2, 21, 20, 0, 0),
     },
   ],
 };

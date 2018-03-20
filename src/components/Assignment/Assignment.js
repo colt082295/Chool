@@ -9,9 +9,14 @@ import s from './Assignment.css';
 class Assignment extends React.Component {
   static propTypes = {
     title: PropTypes.node.isRequired,
-    grade: PropTypes.node.isRequired,
-    class: PropTypes.node.isRequired,
+    grade: PropTypes.node,
+    class: PropTypes.node,
     dueDate: PropTypes.instanceOf(Date).isRequired,
+  };
+
+  static defaultProps = {
+    class: '',
+    grade: '',
   };
 
   state = {
@@ -78,25 +83,35 @@ class Assignment extends React.Component {
   render() {
     return (
       <div className={s.assignment}>
-        <div className={s.gradeWrapper}>
-          <div className={s.grade}>{this.props.grade}</div>
-          <div
-            className={s.gradeLetter}
-            style={{
-              color: this.state.colorKey[this.state.letterGrade],
-            }}
-          >
-            {this.state.letterGrade}
-          </div>
-        </div>
-        <div className={s.assignmentInfo}>
-          <div className={s.assignmentMeta}>
-            <div>
-              <Link to={`/class/${this.state.classNameLowerCase}`}>
-                {this.props.class}
-              </Link>
+        {this.props.grade ? (
+          <div className={s.gradeWrapper}>
+            <div className={s.grade}>{this.props.grade}</div>
+            <div
+              className={s.gradeLetter}
+              style={{
+                color: this.state.colorKey[this.state.letterGrade],
+              }}
+            >
+              {this.state.letterGrade}
             </div>
           </div>
+        ) : (
+          ''
+        )}
+
+        <div className={s.assignmentInfo}>
+          {this.props.class ? (
+            <div className={s.assignmentMeta}>
+              <div>
+                {' '}
+                <Link to={`/class/${this.state.classNameLowerCase}`}>
+                  {this.props.class}
+                </Link>{' '}
+              </div>
+            </div>
+          ) : (
+            ''
+          )}
           <div className={s.assignmentTitle}>{this.props.title}</div>
         </div>
         <div className={s.dateInfo}>

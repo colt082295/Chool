@@ -1,0 +1,13 @@
+@import '../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+:global(.rbc-month-row) {
+  flex-basis: auto !important;
+}
+
+:global(.rbc-date-cell) {
+  min-height: 2em !important;
+}
