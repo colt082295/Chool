@@ -4,7 +4,7 @@
   --brand-color: #61dafb;
 }
 
-.navigation {
+.inner {
   display: flex;
   margin-bottom: 1.5em;
 }
@@ -16,4 +16,8 @@
   font-size: 1.2rem;
   font-weight: 600;
   color: #656565;
+}
+
+.calendarWrapper {
+  position: relative;
 }

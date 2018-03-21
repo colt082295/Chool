@@ -1,7 +1,7 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import PropTypes from 'prop-types';
-import NavigationHeader from '../../components/NavigationHeader/NavigationHeader';
+import FilterHeader from '../../components/FilterHeader/FilterHeader';
 import GradesComponent from '../../components/Grade/Grade';
 import s from './Grades.css';
 
@@ -14,7 +14,7 @@ class Grades extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <NavigationHeader />
+          <FilterHeader />
           <div className={s.grid}>
             {this.props.data.map((assignment, i) => (
               <GradesComponent

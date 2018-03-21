@@ -1,0 +1,15 @@
+.calendar {
+  display: none !important;
+  position: absolute !important;
+  right: 0;
+  box-shadow: 0 0 0 1px #757575, 0 0 5px 4px silver;
+}
+
+.calendarOpen {
+  display: block !important;
+}
+
+:global(.Cal__Container__wrapper) {
+  height: 342px;
+  overflow: hidden;
+}
