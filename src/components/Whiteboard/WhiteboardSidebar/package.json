@@ -1,0 +1,6 @@
+{
+  "name": "WhiteboardSidebar",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./WhiteboardSidebar.js"
+}

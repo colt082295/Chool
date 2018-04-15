@@ -1,0 +1,23 @@
+@import '../../variables.css';
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 1px silver;
+  width: 5%;
+  min-width: 50px;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  padding: 1em 0;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.item:hover {
+  background: whitesmoke;
+  cursor: pointer;
+}

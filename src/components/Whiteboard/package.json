@@ -1,0 +1,6 @@
+{
+  "name": "Whiteboard",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Whiteboard.js"
+}

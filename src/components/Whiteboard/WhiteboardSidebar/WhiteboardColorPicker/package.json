@@ -1,0 +1,6 @@
+{
+  "name": "WhiteboardColorPicker",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./WhiteboardColorPicker.js"
+}
