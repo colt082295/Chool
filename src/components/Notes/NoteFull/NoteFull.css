@@ -1,0 +1,35 @@
+@import '../../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.note {
+  box-shadow: 0 0 2px 1px silver;
+  background: grey;
+  color: white;
+}
+
+.top {
+  padding: 1em;
+  background: #656565;
+}
+
+.main {
+  background: #d4d1d1;
+  color: black;
+}
+
+.extra {
+  padding: 0.5em;
+}
+
+.textArea {
+  padding: 0.5em;
+  width: 100%;
+  min-height: 9em;
+}
+
+.title {
+  font-size: 1.5rem;
+}

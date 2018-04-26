@@ -1,0 +1,6 @@
+{
+  "name": "NoteFull",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./NoteFull.js"
+}

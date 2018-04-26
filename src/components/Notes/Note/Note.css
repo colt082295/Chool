@@ -1,0 +1,22 @@
+@import '../../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.note {
+  background: whitesmoke;
+  box-shadow: 0 0 2px 1px silver;
+  color: black;
+}
+
+.top {
+  background: silver;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.main {
+  padding: 1em;
+}

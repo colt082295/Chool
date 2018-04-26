@@ -1,0 +1,6 @@
+{
+  "name": "NoteComment",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./NoteComment.js"
+}
