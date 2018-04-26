@@ -47,7 +47,7 @@ class Header extends React.Component {
           <Dropdown item icon="user outline" simple>
             <Dropdown.Menu>
               <Dropdown.Item>
-                <Link to="/">Profile</Link>
+                <Link to="/profile">Profile</Link>
               </Dropdown.Item>
               <Dropdown.Divider />
               <Dropdown.Item>More</Dropdown.Item>

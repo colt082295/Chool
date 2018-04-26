@@ -1,0 +1,6 @@
+{
+  "name": "ProfileBasic",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ProfileBasic.js"
+}

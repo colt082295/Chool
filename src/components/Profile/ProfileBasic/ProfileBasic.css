@@ -1,0 +1,13 @@
+@import '../../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.profile {
+  padding: 0;
+}
+
+.basicInfo {
+  padding: 0;
+}
