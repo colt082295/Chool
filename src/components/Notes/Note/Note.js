@@ -27,7 +27,7 @@ class Note extends React.Component {
 
   render() {
     return (
-      <Link to={`/link/${this.state.id}`} className={s.note}>
+      <Link to={`/note/${this.state.id}`} className={s.note}>
         <div className={s.top}>
           <div>{this.state.title}</div>
           <div>{this.state.class}</div>

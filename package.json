@@ -19,6 +19,7 @@
     "express-jwt": "^5.3.0",
     "graphql": "^0.12.3",
     "history": "^4.7.2",
+    "immutability-helper": "^2.6.6",
     "isomorphic-style-loader": "^4.0.0",
     "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.5",

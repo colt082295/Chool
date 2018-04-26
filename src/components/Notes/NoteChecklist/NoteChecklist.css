@@ -1,0 +1,21 @@
+@import '../../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.list {
+  padding: 1em;
+}
+
+.checklist {
+  padding: 0.5em;
+}
+
+.checkbox {
+  display: flex;
+}
+
+.checkboxLabel {
+  padding: 0 1em;
+}

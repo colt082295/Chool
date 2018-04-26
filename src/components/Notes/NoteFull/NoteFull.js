@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Textarea from 'react-textarea-autosize';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import NoteComment from '../NoteComment/NoteComment';
+import NoteChecklist from '../NoteChecklist/NoteChecklist';
 // import Link from '../Link/Link';
 import s from './NoteFull.css';
 
@@ -72,7 +73,6 @@ class NoteFull extends React.Component {
         role="presentation"
         onClick={this.titleClick.bind(this)}
         className={s.title}
-        onKeyPress=""
       >
         {this.state.title}
       </div>
@@ -96,13 +96,18 @@ class NoteFull extends React.Component {
           </div>
         </div>
         <div className={s.extra}>
-          {this.state.items.comments.map((comment, i) => (
-            <NoteComment
-              body={comment.body}
-              date={new Date()}
-              key={i.toString()}
-            />
-          ))}
+          <div>
+            {this.state.items.comments.map((comment, i) => (
+              <NoteComment
+                body={comment.body}
+                date={new Date()}
+                key={i.toString()}
+              />
+            ))}
+          </div>
+          <div>
+            <NoteChecklist />
+          </div>
         </div>
       </div>
     );
