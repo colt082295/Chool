@@ -18,3 +18,34 @@
   background: whitesmoke;
   cursor: pointer;
 }
+
+/* .itemActive {
+  background: whitesmoke;
+} */
+
+.dropdown i {
+  color: black !important;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.colorWrapper {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  width: 5%;
+  height: 93%;
+  top: 4%;
+  left: 0;
+  z-index: 1;
+  bottom: 0%;
+  box-shadow: 0 0 0 1px silver;
+}
+
+.dropdownWrapper {
+  padding: 0 0.5em;
+}

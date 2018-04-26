@@ -76,6 +76,16 @@ class Sidebar extends Component {
           >
             Grades
           </Menu.Item>
+          <Menu.Item
+            as={Link}
+            name="messages"
+            to="/messages"
+            active={activeItem === 'messages'}
+            onClick={this.sidebarItemClicked}
+            className={s.sidebarItem}
+          >
+            Messages
+          </Menu.Item>
         </Menu>
       </div>
     );

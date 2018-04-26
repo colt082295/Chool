@@ -1,0 +1,18 @@
+@import '../../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.messageContainer {
+  display: flex;
+}
+
+.textArea {
+  min-height: 4em;
+  flex: 1;
+}
+
+.send {
+  width: 15%;
+}
