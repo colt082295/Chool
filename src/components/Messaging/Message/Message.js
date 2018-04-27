@@ -10,7 +10,7 @@ class Message extends React.Component {
   static propTypes = {
     body: PropTypes.node.isRequired,
     user: PropTypes.node.isRequired,
-    time: PropTypes.instanceOf(Date).isRequired,
+    time: PropTypes.node.isRequired,
   };
 
   state = {

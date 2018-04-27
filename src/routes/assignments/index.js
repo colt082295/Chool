@@ -2,39 +2,9 @@ import React from 'react';
 import Assignments from './Assignments';
 import Layout from '../../components/Layout';
 
-async function action({ path }) {
-  const data = [
-    {
-      title: 'Spelling Homework: A - H',
-      grade: 95,
-      dueDate: new Date('March 18, 2018'),
-      class: 'English',
-    },
-    {
-      title: 'Math Quiz',
-      grade: 80,
-      dueDate: new Date('March 10, 2018'),
-      class: 'Math',
-    },
-    {
-      title: 'Math Homework: Multiplication Tables',
-      grade: 60,
-      dueDate: new Date('March 8, 2018'),
-      class: 'Math',
-    },
-    {
-      title: 'Math Homework: Division',
-      grade: 45,
-      dueDate: new Date('March 8, 2018'),
-      class: 'Math',
-    },
-    {
-      title: 'Geography Homework: Map of States',
-      grade: 85,
-      dueDate: new Date('March 7, 2018'),
-      class: 'Geography',
-    },
-  ];
+async function action({ path, fetch }) {
+  const resp = await fetch('http://localhost:3005/assignments');
+  const data = await resp.json();
   return {
     title: 'Chool',
     path,

@@ -11,7 +11,7 @@ class Assignment extends React.Component {
     title: PropTypes.node.isRequired,
     grade: PropTypes.node,
     class: PropTypes.node,
-    dueDate: PropTypes.instanceOf(Date).isRequired,
+    dueDate: PropTypes.string.isRequired,
   };
 
   static defaultProps = {

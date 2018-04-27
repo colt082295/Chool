@@ -86,6 +86,26 @@ class Sidebar extends Component {
           >
             Messages
           </Menu.Item>
+          <Menu.Item
+            as={Link}
+            name="notes"
+            to="/notes"
+            active={activeItem === 'notes'}
+            onClick={this.sidebarItemClicked}
+            className={s.sidebarItem}
+          >
+            Notes
+          </Menu.Item>
+          <Menu.Item
+            as={Link}
+            name="whiteboard"
+            to="/whiteboard"
+            active={activeItem === 'whiteboard'}
+            onClick={this.sidebarItemClicked}
+            className={s.sidebarItem}
+          >
+            Whiteboard
+          </Menu.Item>
         </Menu>
       </div>
     );

@@ -11,7 +11,7 @@ class Grade extends React.Component {
     title: PropTypes.node.isRequired,
     grade: PropTypes.node.isRequired,
     class: PropTypes.node.isRequired,
-    dueDate: PropTypes.instanceOf(Date).isRequired,
+    dueDate: PropTypes.string.isRequired,
   };
 
   state = {

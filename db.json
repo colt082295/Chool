@@ -1,0 +1,146 @@
+{
+  "assignments": [
+    {
+      "title": "Spelling Homework: A - H",
+      "grade": 95,
+      "dueDate": "2018-04-27T13:46:28.325Z",
+      "class": "English"
+    },
+    {
+      "title": "Math Quiz",
+      "grade": 80,
+      "dueDate": "2018-04-27T13:46:28.325Z",
+      "class": "Math"
+    },
+    {
+      "title": "Math Homework: Multiplication Tables",
+      "grade": 60,
+      "dueDate": "2018-04-27T13:46:28.325Z",
+      "class": "Math"
+    },
+    {
+      "title": "Math Homework: Division",
+      "grade": 45,
+      "dueDate": "2018-04-27T13:46:28.325Z",
+      "class": "Math"
+    },
+    {
+      "title": "Geography Homework: Map of States",
+      "grade": 85,
+      "dueDate": "2018-04-27T13:46:28.325Z",
+      "class": "Geography"
+    }
+  ],
+  "grades": [
+    {
+      "title": "Spelling Homework: A - H",
+      "grade": 95,
+      "dueDate": "2018-04-27T13:46:28.325Z",
+      "class": "English"
+    },
+    {
+      "title": "Math Quiz",
+      "grade": 80,
+      "dueDate": "2018-04-27T13:46:28.325Z",
+      "class": "Math"
+    },
+    {
+      "title": "Math Homework: Multiplication Tables",
+      "grade": 60,
+      "dueDate": "2018-04-27T13:46:28.325Z",
+      "class": "Math"
+    },
+    {
+      "title": "Math Homework: Division",
+      "grade": 45,
+      "dueDate": "2018-04-27T13:46:28.325Z",
+      "class": "Math"
+    },
+    {
+      "title": "Geography Homework: Map of States",
+      "grade": 85,
+      "dueDate": "2018-04-27T13:46:28.325Z",
+      "class": "Geography"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "name": "Group Chat - English",
+      "users": ["colt", "john", "jenny"],
+      "messages": [
+        {
+          "body": "This is some basic text.",
+          "user": "colt",
+          "time": "2018-04-27T13:46:28.325Z"
+        },
+        {
+          "body": "This is another message.",
+          "user": "john",
+          "time": "2018-04-27T13:46:28.325Z"
+        },
+        {
+          "body": "This is another message.",
+          "user": "jenny",
+          "time": "2018-04-27T13:46:28.325Z"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Group Chat - Math",
+      "users": ["colt", "eric", "cole"],
+      "messages": [
+        {
+          "body": "This is a message.",
+          "user": "colt",
+          "time": "2018-04-27T13:46:28.325Z"
+        },
+        {
+          "body": "This is another message.",
+          "user": "cole",
+          "time": "2018-04-27T13:46:28.325Z"
+        },
+        {
+          "body": "This is yet another message.",
+          "user": "eric",
+          "time": "2018-04-27T13:46:28.325Z"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "title": "This is a basic title.",
+      "body": "Here is the body for one of the notes.",
+      "items": {
+        "comments": [
+          {
+            "body": "This is a comment for the note.",
+            "date": "2018-04-27T13:46:28.325Z"
+          }
+        ],
+        "checklists": [{}]
+      },
+      "class": "English",
+      "date": "2018-04-27T13:46:28.325Z"
+    },
+    {
+      "id": 2,
+      "title": "This is another note.",
+      "body": "Here more body text.",
+      "items": {
+        "comments": [
+          {
+            "body": "This is a comment for the note.",
+            "date": "2018-04-27T13:46:28.325Z"
+          }
+        ],
+        "checklists": [{}]
+      },
+      "class": "English",
+      "date": "2018-04-27T13:46:28.325Z"
+    }
+  ]
+}

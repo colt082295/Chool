@@ -10,7 +10,7 @@ class Notes extends React.Component {
     title: PropTypes.node.isRequired,
     body: PropTypes.node,
     items: PropTypes.instanceOf(Object),
-    date: PropTypes.instanceOf(Date).isRequired,
+    date: PropTypes.node.isRequired,
   };
 
   static defaultProps = {
