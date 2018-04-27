@@ -38,9 +38,6 @@ class Dashboard extends React.Component {
     return (
       <div className={s.dashboard}>
         {this.props.tiles.map((data, i) =>
-          // console.log("item:", this.state.tileTypes[data.type](data.content, i))
-          // console.log("stuff:", data.type, data.content, i)
-          // console.log("Function:", this.state.tileTypes[data.type](data.content, i))
           this.state.tileTypes[data.type](data.content, i),
         )}
       </div>
