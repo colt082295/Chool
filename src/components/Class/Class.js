@@ -13,7 +13,7 @@ import s from './Class.css';
 
 class ClassComponent extends React.Component {
   static propTypes = {
-    data: PropTypes.node.isRequired,
+    data: PropTypes.instanceOf(Object).isRequired,
   };
 
   constructor(props) {

@@ -6,7 +6,7 @@ import s from './Class.css';
 
 class ClassPage extends React.Component {
   static propTypes = {
-    data: PropTypes.instanceOf(Array).isRequired,
+    data: PropTypes.instanceOf(Object).isRequired,
   };
   render() {
     return (
