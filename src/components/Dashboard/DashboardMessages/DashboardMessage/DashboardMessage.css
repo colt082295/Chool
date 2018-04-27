@@ -1,0 +1,38 @@
+@import '../../../variables.css';
+@import '../../DashboardVariables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.messageWrapper {
+  padding: 0;
+}
+
+/* .message {
+  padding: 0;
+}
+
+.meta {
+  padding: 0;
+}
+
+.user {
+  padding: 0;
+}
+
+.group {
+  padding: 0;
+}
+
+.time {
+  padding: 0;
+}
+
+.main {
+  padding: 0;
+}
+
+.body {
+  padding: 0;
+} */

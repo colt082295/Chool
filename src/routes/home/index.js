@@ -2,20 +2,16 @@ import React from 'react';
 import Home from './Home';
 import Layout from '../../components/Layout';
 
-async function action() {
-  // const resp = await fetch('/graphql', {
-  //   body: JSON.stringify({
-  //     query: '{news{title,link,content}}',
-  //   }),
-  // });
-  // const { data } = await resp.json();
-  // if (!data || !data.news) throw new Error('Failed to load the news feed.');
+async function action({ fetch }) {
+  const resp = await fetch('http://localhost:3005/dashboard');
+  const data = await resp.json();
   return {
-    title: 'Chool',
+    title: 'Dashboard',
     path: 'home',
+    data,
     component: (
       <Layout path="home">
-        <Home />
+        <Home data={data} />
       </Layout>
     ),
   };

@@ -1,0 +1,9 @@
+@import '../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.dashboard {
+  padding: 0;
+}

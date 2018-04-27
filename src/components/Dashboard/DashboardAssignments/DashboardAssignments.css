@@ -1,0 +1,10 @@
+@import '../../variables.css';
+@import '../DashboardVariables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.assignmentsTile {
+  padding: 0;
+}

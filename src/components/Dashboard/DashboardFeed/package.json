@@ -1,0 +1,6 @@
+{
+  "name": "DashboardFeed",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./DashboardFeed.js"
+}

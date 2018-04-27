@@ -23,10 +23,9 @@ class ClassComponent extends React.Component {
   }
 
   state = {
-    // isLoading: false,
-    // results: [],
-    // value: '',
-    // students: Data.students,
+    isLoading: false,
+    results: [],
+    value: '',
     grades: this.props.data.grades,
     assignments: this.props.data.assignments,
     feed: this.props.data.feed,
