@@ -1,28 +1,41 @@
 import React from 'react';
 import _ from 'lodash';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import { Tab, Search } from 'semantic-ui-react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Link from '../Link/Link';
 import File from '../File/File';
 import Assignment from '../Assignment/Assignment';
 import Grade from '../Grade/Grade';
-import Data from './data';
 import Calendar from '../Calendar/Calendar';
 import s from './Class.css';
 
 class ClassComponent extends React.Component {
+  static propTypes = {
+    data: PropTypes.node.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.feedGrades = this.feedGrades.bind(this);
     this.feedAssignments = this.feedAssignments.bind(this);
   }
+
   state = {
-    isLoading: false,
-    results: [],
-    value: '',
-    students: Data.students,
+    // isLoading: false,
+    // results: [],
+    // value: '',
+    // students: Data.students,
+    grades: this.props.data.grades,
+    assignments: this.props.data.assignments,
+    feed: this.props.data.feed,
+    // posts: this.props.data.posts,
+    files: this.props.data.files,
+    students: this.props.data.students,
+    events: this.props.data.events,
   };
+
   componentWillMount() {
     this.resetComponent();
   }
@@ -79,7 +92,7 @@ class ClassComponent extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { files, assignments, grades, feed, events } = Data;
+    const { files, assignments, grades, feed, events } = this.state;
     const { isLoading, value, results } = this.state;
     const panes = [
       {
