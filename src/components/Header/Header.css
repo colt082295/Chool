@@ -14,3 +14,16 @@
   min-width: 250px;
   transition: all 0.2s ease-in-out;
 }
+
+.moreLink {
+  background: rgb(216, 216, 216);
+}
+
+.moreLink:not(:last-child) {
+  box-shadow: 0 1px 5px -3px #333;
+}
+
+.userIcon i {
+  color: #37acff !important;
+  font-size: 1.2rem !important;
+}

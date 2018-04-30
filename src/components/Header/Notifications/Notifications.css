@@ -1,0 +1,12 @@
+@import '../../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.notifications a:not(:last-child)::after {
+  content: '';
+  background: #e0e0e0;
+  height: 1px;
+  width: 100%;
+}

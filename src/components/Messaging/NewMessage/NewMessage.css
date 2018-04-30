@@ -6,13 +6,17 @@
 
 .messageContainer {
   display: flex;
+  box-shadow: 0 0 0 1px grey;
 }
 
 .textArea {
   min-height: 4em;
   flex: 1;
+  resize: none;
 }
 
 .send {
   width: 15%;
+  margin: 0 !important;
+  border-radius: 0 !important;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dropdown, Menu } from 'semantic-ui-react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import NotificationsComponent from './Notifications/Notifications';
 import s from './Header.css';
 import Link from '../Link';
 
@@ -41,16 +42,19 @@ class Header extends React.Component {
                 onBlur={this.searchBlurred.bind(this)}
               />
               <i className="search link icon" />
+              <div className="results" />
             </div>
-            <div className="results" />
           </div>
-          <Dropdown item icon="user outline" simple>
+          <Dropdown item icon="user outline" className={s.userIcon} simple>
             <Dropdown.Menu>
-              <Dropdown.Item>
-                <Link to="/profile">Profile</Link>
-              </Dropdown.Item>
+              <NotificationsComponent />
               <Dropdown.Divider />
-              <Dropdown.Item>More</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/profile" className={s.moreLink}>
+                Profile
+              </Dropdown.Item>
+              <Dropdown.Item as={Link} to="/settings">
+                Setting
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Menu.Menu>

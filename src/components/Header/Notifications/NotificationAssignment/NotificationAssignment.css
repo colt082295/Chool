@@ -1,0 +1,44 @@
+@import '../../../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.notificationAssignment {
+  transition: all 0.1s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.notificationAssignment:hover {
+  background: whitesmoke;
+}
+
+.notificationAssignment::before {
+  content: '';
+  background: #3ea200;
+  width: 5px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0.5em;
+  color: #a2a2a2;
+}
+
+.body {
+  padding: 0.5em 1em;
+  color: black;
+}
+
+.dueDate {
+  font-weight: 600;
+  color: #71beff;
+}

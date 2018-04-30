@@ -1,0 +1,6 @@
+{
+  "name": "NotificationMessage",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./NotificationMessage.js"
+}

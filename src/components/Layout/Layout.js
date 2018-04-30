@@ -22,6 +22,7 @@ class Layout extends React.Component {
 
   state = {
     sidebarActiveItem: this.props.path ? this.props.path : '',
+    headerNotifications: [{ type: 'message' }],
   };
 
   changeSidebarActiveItem(name) {
@@ -33,7 +34,7 @@ class Layout extends React.Component {
   render() {
     return (
       <div className={s.root}>
-        <Header />
+        <Header notifications={this.state.headerNotifications} />
         <div className={s.body}>
           <Sidebar
             activeItem={this.state.sidebarActiveItem}
