@@ -24,10 +24,8 @@ class NotificationGrade extends React.Component {
         <div className={s.body}>
           <div>{this.state.title}</div>
         </div>
-        <div>
-          <div className={s.circle}>
-            <div className={s.grade}>{this.state.grade}</div>
-          </div>
+        <div className={s.circle}>
+          <div className={s.grade}>{this.state.grade}</div>
         </div>
       </Link>
     );
