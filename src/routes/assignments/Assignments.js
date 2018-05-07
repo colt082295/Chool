@@ -1,14 +1,21 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import FilterHeader from '../../components/FilterHeader/FilterHeader';
 import AssignmentComponent from '../../components/Assignment/Assignment';
 import s from './Assignments.css';
+import { fetchAssignments } from '../../actions/assignmentActions';
 
 class Assignments extends React.Component {
   static propTypes = {
-    data: PropTypes.instanceOf(Array).isRequired,
+    assignments: PropTypes.instanceOf(Array).isRequired,
+    fetchAssignments: PropTypes.func.isRequired,
   };
+
+  componentDidMount() {
+    this.props.fetchAssignments();
+  }
 
   render() {
     return (
@@ -16,7 +23,7 @@ class Assignments extends React.Component {
         <div className={s.container}>
           <FilterHeader />
           <div className={s.grid}>
-            {this.props.data.map((assignment, i) => (
+            {this.props.assignments.map((assignment, i) => (
               <AssignmentComponent
                 title={assignment.title}
                 grade={assignment.grade}
@@ -32,4 +39,13 @@ class Assignments extends React.Component {
   }
 }
 
-export default withStyles(s)(Assignments);
+const mapStateToProps = (state, ownProps) => ({
+  assignments: state.assignment.assignments,
+  fetching: state.assignment.fetching,
+  fetched: state.assignment.fetched,
+  ...ownProps,
+});
+
+export default connect(mapStateToProps, { fetchAssignments })(
+  withStyles(s)(Assignments),
+);
