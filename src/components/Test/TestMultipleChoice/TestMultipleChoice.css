@@ -1,0 +1,9 @@
+@import '../../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.answers {
+  padding: 2em 4%;
+}

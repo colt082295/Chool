@@ -3,3 +3,60 @@
 :root {
   --brand-color: #61dafb;
 }
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav button,
+.nav a {
+  width: 100% !important;
+  border-radius: 0 !important;
+}
+
+.prev {
+  flex: 1;
+}
+
+.next {
+  flex: 1;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.questionInfo {
+  padding-left: 5%;
+  padding-right: 5%;
+  flex: 1;
+}
+
+.testInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.questionCount {
+  padding: 0.2em 1em;
+  font-size: 1.1rem;
+}
+
+.questionTime {
+  padding: 0.2em 1em;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.question {
+  padding: 0;
+}
+
+.answers {
+  padding: 0;
+}

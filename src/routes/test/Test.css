@@ -1,0 +1,6 @@
+@import '../../components/variables.css';
+
+.root {
+  width: 100%;
+  display: flex;
+}

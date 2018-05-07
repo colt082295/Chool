@@ -1,0 +1,13 @@
+@import '../../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.textareaWrapper {
+  padding: 0;
+}
+
+.textArea {
+  padding: 0;
+}

@@ -22,6 +22,7 @@ html {
   font-size: 1em; /* ~16px; */
   font-family: var(--font-family-base);
   line-height: 1.375; /* ~22px */
+  overflow-x: hidden;
 }
 
 body {
@@ -197,4 +198,6 @@ textarea {
 .main {
   flex: 1;
   overflow-y: auto;
+  display: flex;
+  overflow-x: hidden;
 }

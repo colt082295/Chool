@@ -21,7 +21,6 @@ class Notifications extends React.Component {
         this.setState({
           notifications: myJson,
         });
-        // console.log('Got notification data!', myJson);
       });
   }
 
@@ -30,9 +29,11 @@ class Notifications extends React.Component {
     if (notification.type === 'message') {
       return <NotificationMessage message={notification} key={i.toString()} />;
     } else if (notification.type === 'grade') {
-      return <NotificationGrade grade={notification} />;
+      return <NotificationGrade grade={notification} key={i.toString()} />;
     } else if (notification.type === 'assignment') {
-      return <NotificationAssignment assignment={notification} />;
+      return (
+        <NotificationAssignment assignment={notification} key={i.toString()} />
+      );
     }
     return '';
   }

@@ -1,0 +1,9 @@
+@import '../../variables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+.testQuestion {
+  padding: 0;
+}

@@ -57,6 +57,15 @@ const routes = {
       load: () => import(/* webpackChunkName: 'profile' */ './profile'),
     },
     {
+      path: '/test/finished',
+      load: () =>
+        import(/* webpackChunkName: 'test-finished' */ './test-finished'),
+    },
+    {
+      path: '/test/:id',
+      load: () => import(/* webpackChunkName: 'test' */ './test'),
+    },
+    {
       path: '/note/:id',
       load: () => import(/* webpackChunkName: 'note-full' */ './note-full'),
     },
@@ -67,6 +76,10 @@ const routes = {
     {
       path: '/class/:class',
       load: () => import(/* webpackChunkName: 'class' */ './class'),
+    },
+    {
+      path: '/whiteboard',
+      load: () => import(/* webpackChunkName: 'whiteboard' */ './whiteboard'),
     },
     {
       path: '/whiteboard/:class',
