@@ -14,7 +14,7 @@ import { fetchDashboard } from '../../actions/homeActions';
 class Dashboard extends React.Component {
   static propTypes = {
     tiles: PropTypes.instanceOf(Array).isRequired,
-    fetching: PropTypes.bool.isRequired,
+    // fetching: PropTypes.bool.isRequired,
     fetchDashboard: PropTypes.func.isRequired,
   };
 
@@ -45,7 +45,6 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className={s.dashboard}>
-        <h2>Fetching: {this.props.fetching.toString()}</h2>
         {this.props.tiles.map((data, i) =>
           this.state.tileTypes[data.type](data.content, i),
         )}

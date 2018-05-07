@@ -10,12 +10,13 @@ import s from './NoteFull.css';
 
 class NoteFull extends React.Component {
   static propTypes = {
-    title: PropTypes.node.isRequired,
+    title: PropTypes.node,
     body: PropTypes.node,
     items: PropTypes.instanceOf(Object),
   };
 
   static defaultProps = {
+    title: '',
     body: '',
     items: {},
   };
@@ -23,7 +24,6 @@ class NoteFull extends React.Component {
   state = {
     title: this.props.title,
     body: this.props.body,
-    items: this.props.items,
     editTitle: false,
   };
 
@@ -34,7 +34,7 @@ class NoteFull extends React.Component {
   }
 
   titleBlur(e) {
-    const prevTitle = this.state.title;
+    const prevTitle = this.props.title;
     const newTitle = e.currentTarget.value;
     if (prevTitle !== newTitle) {
       this.setState({
@@ -97,13 +97,15 @@ class NoteFull extends React.Component {
         </div>
         <div className={s.extra}>
           <div>
-            {this.state.items.comments.map((comment, i) => (
-              <NoteComment
-                body={comment.body}
-                date={new Date()}
-                key={i.toString()}
-              />
-            ))}
+            {this.props.items.comments
+              ? this.props.items.comments.map((comment, i) => (
+                  <NoteComment
+                    body={comment.body}
+                    date={new Date()}
+                    key={i.toString()}
+                  />
+                ))
+              : ''}
           </div>
           <div>
             <NoteChecklist />

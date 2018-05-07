@@ -10,14 +10,10 @@ class Messages extends React.Component {
     messages: PropTypes.instanceOf(Array).isRequired,
   };
 
-  state = {
-    messages: this.props.messages,
-  };
-
   render() {
     return (
       <div className={s.messagesList}>
-        {this.state.messages.map((message, i) => (
+        {this.props.messages.map((message, i) => (
           <MessageShortComponent
             chatName={message.name}
             lastMessage={message.messages[message.messages.length - 1]}

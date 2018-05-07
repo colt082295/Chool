@@ -1,28 +1,28 @@
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
 import {
-  FETCH_ASSIGNMENTS_PENDING,
-  FETCH_ASSIGNMENTS_SUCCESS,
-  FETCH_ASSIGNMENTS_FAILURE,
+  FETCH_MESSAGES_PENDING,
+  FETCH_MESSAGES_SUCCESS,
+  FETCH_MESSAGES_FAILURE,
 } from '../constants';
 
-export const fetchAssignments = () => dispatch => {
+export const fetchMessages = () => dispatch => {
   dispatch({
-    type: FETCH_ASSIGNMENTS_PENDING,
+    type: FETCH_MESSAGES_PENDING,
   });
   axios({
     method: 'GET',
-    url: 'http://localhost:3005/assignments',
+    url: 'http://localhost:3005/messages',
   })
     .then(assignment =>
       dispatch({
-        type: FETCH_ASSIGNMENTS_SUCCESS,
+        type: FETCH_MESSAGES_SUCCESS,
         payload: assignment.data,
       }),
     )
     .catch(err =>
       dispatch({
-        type: FETCH_ASSIGNMENTS_FAILURE,
+        type: FETCH_MESSAGES_FAILURE,
         payload: err,
       }),
     );

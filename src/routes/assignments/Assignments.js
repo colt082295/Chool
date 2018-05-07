@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import FilterHeader from '../../components/FilterHeader/FilterHeader';
 import AssignmentComponent from '../../components/Assignment/Assignment';
-import s from './Assignments.css';
 import { fetchAssignments } from '../../actions/assignmentActions';
+import s from './Assignments.css';
 
 class Assignments extends React.Component {
   static propTypes = {
