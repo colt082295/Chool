@@ -10,14 +10,14 @@ class Grade extends React.Component {
   static propTypes = {
     title: PropTypes.node.isRequired,
     grade: PropTypes.node.isRequired,
-    class: PropTypes.node.isRequired,
+    classInfo: PropTypes.node.isRequired,
     dueDate: PropTypes.string.isRequired,
   };
 
   state = {
     dueDate: moment(this.props.dueDate).format('MMM Do YY'),
     letterGrade: this.gradeLetter(),
-    classNameLowerCase: this.props.class.toLowerCase(),
+    classNameLowerCase: this.props.classInfo.toLowerCase(),
     colorKey: {
       'A+': 'rgb(27, 189, 27)',
       A: 'rgb(37, 152, 37)',
@@ -83,7 +83,7 @@ class Grade extends React.Component {
           <div className={s.assignmentMeta}>
             <div>
               <Link to={`/class/${this.state.classNameLowerCase}`}>
-                {this.props.class}
+                {this.props.classInfo}
               </Link>
             </div>
           </div>

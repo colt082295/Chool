@@ -10,12 +10,12 @@ class Assignment extends React.Component {
   static propTypes = {
     title: PropTypes.node.isRequired,
     grade: PropTypes.node,
-    class: PropTypes.node,
+    classInfo: PropTypes.node,
     dueDate: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
-    class: '',
+    classInfo: '',
     grade: '',
   };
 
@@ -23,8 +23,8 @@ class Assignment extends React.Component {
     dueDate: moment(this.props.dueDate).format('MMM Do YY'),
     dueDatePassed: moment(this.props.dueDate).isBefore(new Date()),
     letterGrade: this.gradeLetter(),
-    classNameLowerCase: this.props.class
-      ? this.props.class.toLowerCase()
+    classNameLowerCase: this.props.classInfo
+      ? this.props.classInfo.toLowerCase()
       : null,
     colorKey: {
       'A+': 'rgb(27, 189, 27)',
@@ -100,12 +100,12 @@ class Assignment extends React.Component {
         )}
 
         <div className={s.assignmentInfo}>
-          {this.props.class ? (
+          {this.props.classInfo ? (
             <div className={s.assignmentMeta}>
               <div>
                 {' '}
                 <Link to={`/class/${this.state.classNameLowerCase}`}>
-                  {this.props.class}
+                  {this.props.classInfo}
                 </Link>{' '}
               </div>
             </div>

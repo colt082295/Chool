@@ -17,6 +17,7 @@ class ClassComponent extends React.Component {
   static propTypes = {
     class: PropTypes.instanceOf(Object).isRequired,
     fetchClass: PropTypes.func.isRequired,
+    fetched: PropTypes.bool.isRequired,
   };
 
   constructor(props) {
@@ -29,17 +30,12 @@ class ClassComponent extends React.Component {
     isLoading: false,
     results: [],
     value: '',
-    // grades: this.props.class.grades,
-    // assignments: this.props.class.assignments,
-    // feed: this.props.class.feed,
-    // posts: this.props.data.posts,
-    // files: this.props.class.files,
-    // students: this.props.class.students,
-    // events: this.props.class.events,
   };
 
   componentWillMount() {
-    this.resetComponent();
+    if (this.props.class.students) {
+      this.resetComponent();
+    }
   }
 
   componentDidMount() {
@@ -78,7 +74,7 @@ class ClassComponent extends React.Component {
         title={grade.title}
         grade={grade.grade}
         dueDate={grade.dueDate}
-        class={grade.class}
+        classInfo={grade.class}
         key={i.toString()}
       />
     ));
@@ -90,7 +86,7 @@ class ClassComponent extends React.Component {
         title={assignment.title}
         grade={assignment.grade}
         dueDate={assignment.dueDate}
-        class={assignment.class}
+        classInfo={assignment.class}
         key={i.toString()}
       />
     ));
@@ -106,7 +102,7 @@ class ClassComponent extends React.Component {
         menuItem: 'Feed',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            {feed
+            {this.props.class.feed
               ? feed.map((item, i) => (
                   <div key={i.toString()}>
                     <div className={s.timeline}>
@@ -144,7 +140,7 @@ class ClassComponent extends React.Component {
                   title={grade.title}
                   grade={grade.grade}
                   dueDate={grade.dueDate}
-                  class={grade.class}
+                  classInfo={grade.class}
                   key={i.toString()}
                 />
               ))}
@@ -162,7 +158,7 @@ class ClassComponent extends React.Component {
                   title={assignment.title}
                   grade={assignment.grade}
                   dueDate={assignment.dueDate}
-                  class={assignment.class}
+                  classInfo={assignment.class}
                   key={i.toString()}
                 />
               ))}
