@@ -1,8 +1,7 @@
 import React from 'react';
-import _ from 'lodash';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import { Tab, Search } from 'semantic-ui-react';
+import { Tab } from 'semantic-ui-react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Link from '../Link/Link';
 import File from '../File/File';
@@ -14,8 +13,6 @@ import s from './Class.css';
 class ClassComponent extends React.Component {
   static propTypes = {
     classInfo: PropTypes.instanceOf(Object).isRequired,
-    fetching: PropTypes.bool.isRequired,
-    fetched: PropTypes.bool.isRequired,
   };
 
   constructor(props) {
@@ -24,44 +21,42 @@ class ClassComponent extends React.Component {
     this.feedAssignments = this.feedAssignments.bind(this);
   }
 
-  state = {
-    isLoading: false,
-    results: [],
-    value: '',
-    students: [],
-  };
-
   componentWillMount() {
-    if (this.props.fetched && !this.props.fetching) {
+    if (this.props.classInfo.students) {
       this.resetComponent();
     }
   }
 
   /* eslint-disable class-methods-use-this */
-  resetComponent() {
-    const sortedStudents = this.props.classInfo.students.sort((a, b) => {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
-    });
-    this.setState({ isLoading: false, results: sortedStudents, value: '' });
-  }
-
-  handleSearchChange = (e, { value }) => {
-    this.setState({ isLoading: true, value });
-    /* eslint-disable consistent-return */
-    setTimeout(() => {
-      if (this.state.value.length < 1) return this.resetComponent();
-
-      const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-      const isMatch = result => re.test(result.name);
-
-      this.setState({
-        isLoading: false,
-        results: _.filter(this.state.students, isMatch),
+  sortedStudents() {
+    const myData = []
+      .concat(this.props.classInfo.students)
+      .sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      })
+      .map((item, i) => {
+        const itemUrl = encodeURIComponent(item.name).toLowerCase();
+        return (
+          <Link
+            to={`/student/${itemUrl}`}
+            className={s.student}
+            key={i.toString()}
+          >
+            <div>
+              <img
+                alt=""
+                className={s.avatar}
+                src="https://pbs.twimg.com/profile_images/967289028688084997/K0xeruWq_400x400.jpg"
+              />
+            </div>
+            <div className={s.name}>{item.name}</div>
+          </Link>
+        );
       });
-    }, 500);
-  };
+    return myData;
+  }
 
   feedGrades(grades) {
     return grades.map((grade, i) => (
@@ -91,7 +86,6 @@ class ClassComponent extends React.Component {
   render() {
     // const { files, assignments, grades, feed, events } = this.state;
     const { files, assignments, grades, feed, events } = this.props.classInfo;
-    const { isLoading, value, results } = this.state;
     const panes = [
       {
         menuItem: 'Feed',
@@ -185,39 +179,7 @@ class ClassComponent extends React.Component {
       },
       {
         menuItem: 'Students',
-        render: () => (
-          <Tab.Pane className={s.tabBody} attached={false}>
-            <Search
-              loading={isLoading}
-              onSearchChange={this.handleSearchChange}
-              results={results}
-              value={value}
-              open={false}
-              {...this.props}
-            />
-            <div className={s.students}>
-              {this.state.results.map((item, i) => {
-                const itemUrl = encodeURIComponent(item.name).toLowerCase();
-                return (
-                  <Link
-                    to={`/student/${itemUrl}`}
-                    className={s.student}
-                    key={i.toString()}
-                  >
-                    <div>
-                      <img
-                        alt=""
-                        className={s.avatar}
-                        src="https://pbs.twimg.com/profile_images/967289028688084997/K0xeruWq_400x400.jpg"
-                      />
-                    </div>
-                    <div className={s.name}>{item.name}</div>
-                  </Link>
-                );
-              })}
-            </div>
-          </Tab.Pane>
-        ),
+        render: () => <div className={s.students}>{this.sortedStudents()}</div>,
       },
     ];
     return (

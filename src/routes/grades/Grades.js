@@ -28,7 +28,7 @@ class Grades extends React.Component {
                 title={assignment.title}
                 grade={assignment.grade}
                 dueDate={assignment.dueDate}
-                class={assignment.class}
+                classInfo={assignment.class}
                 key={i.toString()}
               />
             ))}

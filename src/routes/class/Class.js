@@ -14,12 +14,6 @@ class ClassPage extends React.Component {
     fetched: PropTypes.bool.isRequired,
   };
 
-  // constructor(props) {
-  //   super(props);
-  //   this.feedGrades = this.feedGrades.bind(this);
-  //   this.feedAssignments = this.feedAssignments.bind(this);
-  // }
-
   componentDidMount() {
     this.props.fetchClass();
   }
