@@ -1,0 +1,11 @@
+@import '../../../variables.css';
+@import '../../DashboardVariables.css';
+
+:root {
+  --brand-color: #61dafb;
+}
+
+/* Fix for the modal displaying off-screen. */
+:global(.ui.page.modals.transition.visible) {
+  display: flex !important;
+}

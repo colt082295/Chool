@@ -18,7 +18,7 @@
   margin: 0;
 }
 
-.item {
+.grade {
   display: block;
   padding: 0.5em;
   margin-bottom: 0.5em;
@@ -26,20 +26,17 @@
   transition: all 0.15s ease-in-out;
 }
 
-.item:hover {
+.grade:hover {
   background: whitesmoke;
 }
 
-.items {
+.grades {
   flex: 1;
   max-height: var(--max-scroll-height);
   overflow-y: scroll;
 }
 
 .more {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 0.5em;
   background: whitesmoke;
   border-top: 1px solid silver;
@@ -69,14 +66,4 @@
   font-weight: 600;
   text-decoration: underline;
   font-size: 1rem;
-}
-
-.addNote {
-  margin: 0 0 0 1em;
-}
-
-.tile {
-  box-shadow: 0 0 1px 1px silver;
-  display: flex;
-  flex-direction: column;
 }

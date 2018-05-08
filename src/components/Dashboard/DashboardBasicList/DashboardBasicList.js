@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import Link from '../../Link/Link';
 import Message from '../DashboardMessages/DashboardMessage/DashboardMessage';
+import SettingsModal from './SettingsModal/SettingsModal';
 import s from './DashboardBasicList.css';
 
 const classes = [
@@ -20,9 +21,25 @@ class DashboardBasicList extends React.Component {
     type: PropTypes.node.isRequired,
   };
 
+  state = {
+    modalOpen: false,
+  };
+
   /* eslint-disable class-methods-use-this, consistent-return */
   capFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  openSettingsModal() {
+    this.setState({
+      modalOpen: true,
+    });
+  }
+
+  closeSettingModal() {
+    this.setState({
+      modalOpen: !this.state.modalOpen,
+    });
   }
 
   renderBlock(type, list, i) {
@@ -60,8 +77,8 @@ class DashboardBasicList extends React.Component {
       );
     } else if (type === 'feeds') {
       return list.content.map(item =>
-        item[Object.keys(item)[0]].map(content => (
-          <Link to="/" className={s.item} key={i.toString()}>
+        item[Object.keys(item)[0]].map((content, index) => (
+          <Link to="/" className={s.item} key={(i + index).toString()}>
             <div>
               {content.title ? <h3>{content.title}</h3> : ''}
               {content.body ? <h3>{content.body}</h3> : ''}
@@ -132,24 +149,35 @@ class DashboardBasicList extends React.Component {
       </div>
     );
   }
+
   /* eslint-enable class-methods-use-this, consistent-return */
 
   render() {
     return (
       // eslint-disable-next-line css-modules/no-undef-class
-      <div className={(s.assignmentsTile, s.tile)}>
-        <div className={s.top}>
-          <h3 className={s.title}>{this.capFirstLetter(this.props.title)}</h3>
-          <div className={s.options}>
-            <Icon name="ellipsis vertical" />
+      <div>
+        <div className={s.tile}>
+          <div className={s.top}>
+            <h3 className={s.title}>{this.capFirstLetter(this.props.title)}</h3>
+            <div className={s.options}>
+              <Icon
+                name="ellipsis vertical"
+                onClick={this.openSettingsModal.bind(this)}
+              />
+            </div>
           </div>
+          <div className={s.items}>
+            {this.props.list.map((list, i) =>
+              this.renderBlock(this.props.type, list, i),
+            )}
+          </div>
+          {this.renderMore(this.props.type)}
         </div>
-        <div className={s.items}>
-          {this.props.list.map((list, i) =>
-            this.renderBlock(this.props.type, list, i),
-          )}
-        </div>
-        {this.renderMore(this.props.type)}
+        <SettingsModal
+          modalOpen={this.state.modalOpen}
+          title={this.capFirstLetter(this.props.title)}
+          closeSettingModal={this.closeSettingModal.bind(this)}
+        />
       </div>
     );
   }
