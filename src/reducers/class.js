@@ -7,7 +7,15 @@ import {
 const initialState = {
   fetching: false,
   fetched: true,
-  class: {},
+  class: {
+    feed: [],
+    students: [],
+    files: [],
+    assignments: [],
+    grades: [],
+    posts: [],
+    events: [],
+  },
   error: null,
 };
 

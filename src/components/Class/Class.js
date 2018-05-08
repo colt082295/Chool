@@ -4,19 +4,17 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import { Tab, Search } from 'semantic-ui-react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import { connect } from 'react-redux';
 import Link from '../Link/Link';
 import File from '../File/File';
 import Assignment from '../Assignment/Assignment';
 import Grade from '../Grade/Grade';
 import Calendar from '../Calendar/Calendar';
-import { fetchClass } from '../../actions/classActions';
 import s from './Class.css';
 
 class ClassComponent extends React.Component {
   static propTypes = {
-    class: PropTypes.instanceOf(Object).isRequired,
-    fetchClass: PropTypes.func.isRequired,
+    classInfo: PropTypes.instanceOf(Object).isRequired,
+    fetching: PropTypes.bool.isRequired,
     fetched: PropTypes.bool.isRequired,
   };
 
@@ -30,21 +28,18 @@ class ClassComponent extends React.Component {
     isLoading: false,
     results: [],
     value: '',
+    students: [],
   };
 
   componentWillMount() {
-    if (this.props.class.students) {
+    if (this.props.fetched && !this.props.fetching) {
       this.resetComponent();
     }
   }
 
-  componentDidMount() {
-    this.props.fetchClass();
-  }
-
   /* eslint-disable class-methods-use-this */
   resetComponent() {
-    const sortedStudents = this.props.class.students.sort((a, b) => {
+    const sortedStudents = this.props.classInfo.students.sort((a, b) => {
       if (a.name < b.name) return -1;
       if (a.name > b.name) return 1;
       return 0;
@@ -95,30 +90,28 @@ class ClassComponent extends React.Component {
 
   render() {
     // const { files, assignments, grades, feed, events } = this.state;
-    const { files, assignments, grades, feed, events } = this.props.class;
+    const { files, assignments, grades, feed, events } = this.props.classInfo;
     const { isLoading, value, results } = this.state;
     const panes = [
       {
         menuItem: 'Feed',
         render: () => (
           <Tab.Pane className={s.tabBody} attached={false}>
-            {this.props.class.feed
-              ? feed.map((item, i) => (
-                  <div key={i.toString()}>
-                    <div className={s.timeline}>
-                      <span className={s.timelineBefore} />
-                      <div className={s.timelineDate}>
-                        {moment(feed.date).format('dddd, MMMM Do')}
-                      </div>
-                      <span className={s.timelineAfter} />
-                    </div>
-                    <div className={s.feedGrid}>
-                      {this.feedGrades(item.content.grades)}
-                      {this.feedAssignments(item.content.assignments)}
-                    </div>
+            {feed.map((item, i) => (
+              <div key={i.toString()}>
+                <div className={s.timeline}>
+                  <span className={s.timelineBefore} />
+                  <div className={s.timelineDate}>
+                    {moment(feed.date).format('dddd, MMMM Do')}
                   </div>
-                ))
-              : ''}
+                  <span className={s.timelineAfter} />
+                </div>
+                <div className={s.feedGrid}>
+                  {this.feedGrades(item.content.grades)}
+                  {this.feedAssignments(item.content.assignments)}
+                </div>
+              </div>
+            ))}
           </Tab.Pane>
         ),
       },
@@ -237,13 +230,4 @@ class ClassComponent extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  class: state.classInfo.class,
-  fetching: state.classInfo.fetching,
-  fetched: state.classInfo.fetched,
-  ...ownProps,
-});
-
-export default connect(mapStateToProps, { fetchClass })(
-  withStyles(s)(ClassComponent),
-);
+export default withStyles(s)(ClassComponent);
