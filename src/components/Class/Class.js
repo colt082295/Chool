@@ -21,12 +21,6 @@ class ClassComponent extends React.Component {
     this.feedAssignments = this.feedAssignments.bind(this);
   }
 
-  componentWillMount() {
-    if (this.props.classInfo.students) {
-      this.resetComponent();
-    }
-  }
-
   /* eslint-disable class-methods-use-this */
   sortedStudents() {
     const myData = []
@@ -48,7 +42,7 @@ class ClassComponent extends React.Component {
               <img
                 alt=""
                 className={s.avatar}
-                src="https://pbs.twimg.com/profile_images/967289028688084997/K0xeruWq_400x400.jpg"
+                src="https://avatars3.githubusercontent.com/u/6713494?s=460&v=4"
               />
             </div>
             <div className={s.name}>{item.name}</div>

@@ -5,6 +5,35 @@
   --brand-color: #61dafb;
 }
 
-.messagesTile {
-  padding: 0;
+.top {
+  display: flex;
+  flex-direction: row;
+  background: whitesmoke;
+  padding: 0.5em;
+  border-bottom: 1px solid silver;
+}
+
+.title {
+  flex: 1;
+  margin: 0;
+}
+
+.messages {
+  flex: 1;
+  max-height: var(--max-scroll-height);
+  overflow-y: scroll;
+}
+
+.more {
+  padding: 0.5em;
+  background: whitesmoke;
+  border-top: 1px solid silver;
+}
+
+.options {
+  margin: 0 0 0 1em;
+}
+
+.options:hover {
+  cursor: pointer;
 }

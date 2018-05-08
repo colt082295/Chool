@@ -64,6 +64,70 @@
           },
           "class": "English",
           "date": "2018-04-27T13:46:28.325Z"
+        },
+        {
+          "id": 3,
+          "title": "This is a basic title.",
+          "body": "Here is the body for one of the notes.",
+          "items": {
+            "comments": [
+              {
+                "body": "This is a comment for the note.",
+                "date": "2018-04-27T13:46:28.325Z"
+              }
+            ],
+            "checklists": [{}]
+          },
+          "class": "English",
+          "date": "2018-04-27T13:46:28.325Z"
+        },
+        {
+          "id": 4,
+          "title": "This is another note.",
+          "body": "Here more body text.",
+          "items": {
+            "comments": [
+              {
+                "body": "This is a comment for the note.",
+                "date": "2018-04-27T13:46:28.325Z"
+              }
+            ],
+            "checklists": [{}]
+          },
+          "class": "English",
+          "date": "2018-04-27T13:46:28.325Z"
+        },
+        {
+          "id": 5,
+          "title": "This is a basic title.",
+          "body": "Here is the body for one of the notes.",
+          "items": {
+            "comments": [
+              {
+                "body": "This is a comment for the note.",
+                "date": "2018-04-27T13:46:28.325Z"
+              }
+            ],
+            "checklists": [{}]
+          },
+          "class": "English",
+          "date": "2018-04-27T13:46:28.325Z"
+        },
+        {
+          "id": 6,
+          "title": "This is another note.",
+          "body": "Here more body text.",
+          "items": {
+            "comments": [
+              {
+                "body": "This is a comment for the note.",
+                "date": "2018-04-27T13:46:28.325Z"
+              }
+            ],
+            "checklists": [{}]
+          },
+          "class": "English",
+          "date": "2018-04-27T13:46:28.325Z"
         }
       ]
     },
@@ -71,30 +135,35 @@
       "type": "assignments",
       "content": [
         {
+          "id": 1,
           "title": "Spelling Homework: A - H",
           "grade": 95,
           "dueDate": "2018-04-27T13:46:28.325Z",
           "class": "English"
         },
         {
+          "id": 2,
           "title": "Math Quiz",
           "grade": 80,
           "dueDate": "2018-04-27T13:46:28.325Z",
           "class": "Math"
         },
         {
+          "id": 3,
           "title": "Math Homework: Multiplication Tables",
           "grade": 60,
           "dueDate": "2018-04-27T13:46:28.325Z",
           "class": "Math"
         },
         {
+          "id": 4,
           "title": "Math Homework: Division",
           "grade": 45,
           "dueDate": "2018-04-27T13:46:28.325Z",
           "class": "Math"
         },
         {
+          "id": 5,
           "title": "Geography Homework: Map of States",
           "grade": 85,
           "dueDate": "2018-04-27T13:46:28.325Z",
@@ -127,16 +196,39 @@
             {
               "assignments": [
                 {
+                  "id": 1,
                   "title": "Spelling Homework: A - H",
                   "grade": 95,
-                  "dueDate": "2018-03-18T05:00:00.000Z",
+                  "dueDate": "2018-04-27T13:46:28.325Z",
                   "class": "English"
                 },
                 {
+                  "id": 2,
                   "title": "Math Quiz",
                   "grade": 80,
-                  "dueDate": "2018-03-10T06:00:00.000Z",
+                  "dueDate": "2018-04-27T13:46:28.325Z",
                   "class": "Math"
+                },
+                {
+                  "id": 3,
+                  "title": "Math Homework: Multiplication Tables",
+                  "grade": 60,
+                  "dueDate": "2018-04-27T13:46:28.325Z",
+                  "class": "Math"
+                },
+                {
+                  "id": 4,
+                  "title": "Math Homework: Division",
+                  "grade": 45,
+                  "dueDate": "2018-04-27T13:46:28.325Z",
+                  "class": "Math"
+                },
+                {
+                  "id": 5,
+                  "title": "Geography Homework: Map of States",
+                  "grade": 85,
+                  "dueDate": "2018-04-27T13:46:28.325Z",
+                  "class": "Geography"
                 }
               ]
             },
@@ -195,14 +287,39 @@
             {
               "assignments": [
                 {
+                  "id": 1,
                   "title": "Spelling Homework: A - H",
-                  "dueDate": "2018-03-19T05:00:00.000Z",
+                  "grade": 95,
+                  "dueDate": "2018-04-27T13:46:28.325Z",
                   "class": "English"
                 },
                 {
+                  "id": 2,
                   "title": "Math Quiz",
-                  "dueDate": "2018-03-20T05:00:00.000Z",
+                  "grade": 80,
+                  "dueDate": "2018-04-27T13:46:28.325Z",
                   "class": "Math"
+                },
+                {
+                  "id": 3,
+                  "title": "Math Homework: Multiplication Tables",
+                  "grade": 60,
+                  "dueDate": "2018-04-27T13:46:28.325Z",
+                  "class": "Math"
+                },
+                {
+                  "id": 4,
+                  "title": "Math Homework: Division",
+                  "grade": 45,
+                  "dueDate": "2018-04-27T13:46:28.325Z",
+                  "class": "Math"
+                },
+                {
+                  "id": 5,
+                  "title": "Geography Homework: Map of States",
+                  "grade": 85,
+                  "dueDate": "2018-04-27T13:46:28.325Z",
+                  "class": "Geography"
                 }
               ]
             },
@@ -325,30 +442,35 @@
   ],
   "assignments": [
     {
+      "id": 1,
       "title": "Spelling Homework: A - H",
       "grade": 95,
       "dueDate": "2018-04-27T13:46:28.325Z",
       "class": "English"
     },
     {
+      "id": 2,
       "title": "Math Quiz",
       "grade": 80,
       "dueDate": "2018-04-27T13:46:28.325Z",
       "class": "Math"
     },
     {
+      "id": 3,
       "title": "Math Homework: Multiplication Tables",
       "grade": 60,
       "dueDate": "2018-04-27T13:46:28.325Z",
       "class": "Math"
     },
     {
+      "id": 4,
       "title": "Math Homework: Division",
       "grade": 45,
       "dueDate": "2018-04-27T13:46:28.325Z",
       "class": "Math"
     },
     {
+      "id": 5,
       "title": "Geography Homework: Map of States",
       "grade": 85,
       "dueDate": "2018-04-27T13:46:28.325Z",
@@ -465,6 +587,70 @@
       },
       "class": "English",
       "date": "2018-04-27T13:46:28.325Z"
+    },
+    {
+      "id": 3,
+      "title": "This is a basic title.",
+      "body": "Here is the body for one of the notes.",
+      "items": {
+        "comments": [
+          {
+            "body": "This is a comment for the note.",
+            "date": "2018-04-27T13:46:28.325Z"
+          }
+        ],
+        "checklists": [{}]
+      },
+      "class": "English",
+      "date": "2018-04-27T13:46:28.325Z"
+    },
+    {
+      "id": 4,
+      "title": "This is another note.",
+      "body": "Here more body text.",
+      "items": {
+        "comments": [
+          {
+            "body": "This is a comment for the note.",
+            "date": "2018-04-27T13:46:28.325Z"
+          }
+        ],
+        "checklists": [{}]
+      },
+      "class": "English",
+      "date": "2018-04-27T13:46:28.325Z"
+    },
+    {
+      "id": 5,
+      "title": "This is a basic title.",
+      "body": "Here is the body for one of the notes.",
+      "items": {
+        "comments": [
+          {
+            "body": "This is a comment for the note.",
+            "date": "2018-04-27T13:46:28.325Z"
+          }
+        ],
+        "checklists": [{}]
+      },
+      "class": "English",
+      "date": "2018-04-27T13:46:28.325Z"
+    },
+    {
+      "id": 6,
+      "title": "This is another note.",
+      "body": "Here more body text.",
+      "items": {
+        "comments": [
+          {
+            "body": "This is a comment for the note.",
+            "date": "2018-04-27T13:46:28.325Z"
+          }
+        ],
+        "checklists": [{}]
+      },
+      "class": "English",
+      "date": "2018-04-27T13:46:28.325Z"
     }
   ],
   "class": {
@@ -488,16 +674,39 @@
           ],
           "assignments": [
             {
+              "id": 1,
               "title": "Spelling Homework: A - H",
               "grade": 95,
-              "dueDate": "2018-03-18T05:00:00.000Z",
+              "dueDate": "2018-04-27T13:46:28.325Z",
               "class": "English"
             },
             {
+              "id": 2,
               "title": "Math Quiz",
               "grade": 80,
-              "dueDate": "2018-03-10T06:00:00.000Z",
+              "dueDate": "2018-04-27T13:46:28.325Z",
               "class": "Math"
+            },
+            {
+              "id": 3,
+              "title": "Math Homework: Multiplication Tables",
+              "grade": 60,
+              "dueDate": "2018-04-27T13:46:28.325Z",
+              "class": "Math"
+            },
+            {
+              "id": 4,
+              "title": "Math Homework: Division",
+              "grade": 45,
+              "dueDate": "2018-04-27T13:46:28.325Z",
+              "class": "Math"
+            },
+            {
+              "id": 5,
+              "title": "Geography Homework: Map of States",
+              "grade": 85,
+              "dueDate": "2018-04-27T13:46:28.325Z",
+              "class": "Geography"
             }
           ],
           "files": [
@@ -548,14 +757,39 @@
           ],
           "assignments": [
             {
+              "id": 1,
               "title": "Spelling Homework: A - H",
-              "dueDate": "2018-03-19T05:00:00.000Z",
+              "grade": 95,
+              "dueDate": "2018-04-27T13:46:28.325Z",
               "class": "English"
             },
             {
+              "id": 2,
               "title": "Math Quiz",
-              "dueDate": "2018-03-20T05:00:00.000Z",
+              "grade": 80,
+              "dueDate": "2018-04-27T13:46:28.325Z",
               "class": "Math"
+            },
+            {
+              "id": 3,
+              "title": "Math Homework: Multiplication Tables",
+              "grade": 60,
+              "dueDate": "2018-04-27T13:46:28.325Z",
+              "class": "Math"
+            },
+            {
+              "id": 4,
+              "title": "Math Homework: Division",
+              "grade": 45,
+              "dueDate": "2018-04-27T13:46:28.325Z",
+              "class": "Math"
+            },
+            {
+              "id": 5,
+              "title": "Geography Homework: Map of States",
+              "grade": 85,
+              "dueDate": "2018-04-27T13:46:28.325Z",
+              "class": "Geography"
             }
           ],
           "files": [
@@ -623,33 +857,38 @@
     ],
     "assignments": [
       {
+        "id": 1,
         "title": "Spelling Homework: A - H",
         "grade": 95,
-        "dueDate": "2018-03-18T05:00:00.000Z",
+        "dueDate": "2018-04-27T13:46:28.325Z",
         "class": "English"
       },
       {
+        "id": 2,
         "title": "Math Quiz",
         "grade": 80,
-        "dueDate": "2018-03-10T06:00:00.000Z",
+        "dueDate": "2018-04-27T13:46:28.325Z",
         "class": "Math"
       },
       {
+        "id": 3,
         "title": "Math Homework: Multiplication Tables",
         "grade": 60,
-        "dueDate": "2018-03-08T06:00:00.000Z",
+        "dueDate": "2018-04-27T13:46:28.325Z",
         "class": "Math"
       },
       {
+        "id": 4,
         "title": "Math Homework: Division",
         "grade": 45,
-        "dueDate": "2018-03-08T06:00:00.000Z",
+        "dueDate": "2018-04-27T13:46:28.325Z",
         "class": "Math"
       },
       {
+        "id": 5,
         "title": "Geography Homework: Map of States",
         "grade": 85,
-        "dueDate": "2018-03-07T06:00:00.000Z",
+        "dueDate": "2018-04-27T13:46:28.325Z",
         "class": "Geography"
       }
     ],

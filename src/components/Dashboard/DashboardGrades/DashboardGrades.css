@@ -5,6 +5,65 @@
   --brand-color: #61dafb;
 }
 
-.gradeTile {
-  padding: 0;
+.top {
+  display: flex;
+  flex-direction: row;
+  background: whitesmoke;
+  padding: 0.5em;
+  border-bottom: 1px solid silver;
+}
+
+.title {
+  flex: 1;
+  margin: 0;
+}
+
+.grade {
+  display: block;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  color: #444;
+  transition: all 0.15s ease-in-out;
+}
+
+.grade:hover {
+  background: whitesmoke;
+}
+
+.grades {
+  flex: 1;
+  max-height: var(--max-scroll-height);
+  overflow-y: scroll;
+}
+
+.more {
+  padding: 0.5em;
+  background: whitesmoke;
+  border-top: 1px solid silver;
+}
+
+.meta {
+  padding: 0 1em;
+}
+
+.meta span {
+  margin: 0 1em 0 0;
+}
+
+.date {
+  font-weight: 600;
+}
+
+.options {
+  margin: 0 0 0 1em;
+}
+
+.options:hover {
+  cursor: pointer;
+}
+
+.gradeScore {
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 1rem;
 }

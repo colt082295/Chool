@@ -1,7 +1,9 @@
 import React from 'react';
 // import { Tab } from 'semantic-ui-react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import Link from '../../../Link/Link';
 import s from './DashboardMessage.css';
 
 class DashboardMessage extends React.Component {
@@ -10,25 +12,24 @@ class DashboardMessage extends React.Component {
     message: PropTypes.instanceOf(Object).isRequired,
   };
 
-  state = {
-    name: this.props.name,
-    message: this.props.message,
-  };
+  // state = {
+  //   name: this.props.name,
+  //   message: this.props.message,
+  // };
 
   render() {
     return (
       <div className={s.messageWrapper}>
-        {/* <div className={s.message}>
+        <Link to="/messages" className={s.message}>
+          <div>
+            <div className={s.body}>{this.props.message.body}</div>
+          </div>
           <div className={s.meta}>
-            <div className={s.user}>Colt</div>
-            <div className={s.group}>English Group</div>
-            <div className={s.time}>9:45</div>
+            <div>{this.props.message.user}</div>
+            <div>{this.props.name}</div>
+            <div>{moment(this.props.message.time).format('MMM Do YY')}</div>
           </div>
-          <div className={s.main}>
-            <div className={s.body}>This is the text for the message.</div>
-          </div>
-        </div> */}
-        <h3>{`${this.state.name} ${this.state.message.body}`}</h3>
+        </Link>
       </div>
     );
   }
