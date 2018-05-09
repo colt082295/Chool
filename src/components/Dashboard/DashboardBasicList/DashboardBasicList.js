@@ -8,21 +8,19 @@ import Message from '../DashboardMessages/DashboardMessage/DashboardMessage';
 import SettingsModal from './SettingsModal/SettingsModal';
 import s from './DashboardBasicList.css';
 
-const classes = [
-  { key: 'all', value: 'all', text: 'All' },
-  { key: 'english', value: 'english', text: 'English' },
-  { key: 'math', value: 'math', text: 'Math' },
-];
-
 class DashboardBasicList extends React.Component {
   static propTypes = {
+    id: PropTypes.node.isRequired,
     list: PropTypes.instanceOf(Array).isRequired,
     title: PropTypes.node.isRequired,
     type: PropTypes.node.isRequired,
+    updateSettings: PropTypes.func.isRequired,
+    settings: PropTypes.instanceOf(Object).isRequired,
   };
 
   state = {
     modalOpen: false,
+    class: this.props.settings[0].value, // Dropdown val controlled via this. Modal changes it along with actual dropdown.
   };
 
   /* eslint-disable class-methods-use-this, consistent-return */
@@ -38,8 +36,23 @@ class DashboardBasicList extends React.Component {
 
   closeSettingModal() {
     this.setState({
-      modalOpen: !this.state.modalOpen,
+      modalOpen: false,
     });
+  }
+
+  dropdownChange(event, data) {
+    // Set the dropdown value.
+    this.setState({
+      class: data.value,
+    });
+  }
+
+  updateSettings(id, settings) {
+    // Set the dropdown value.
+    this.setState({
+      class: settings[0].value,
+    });
+    this.props.updateSettings(id, settings);
   }
 
   renderBlock(type, list, i) {
@@ -126,9 +139,11 @@ class DashboardBasicList extends React.Component {
             placeholder="Class"
             fluid
             search
-            defaultValue="all"
+            // defaultValue={this.props.settings[0].value}
+            value={this.state.class}
             selection
-            options={classes}
+            options={this.props.settings[0].options}
+            onChange={this.dropdownChange.bind(this)}
           />
           <Link to="/notes" className={s.addNote}>
             <Icon name="plus" />
@@ -142,9 +157,11 @@ class DashboardBasicList extends React.Component {
           placeholder="Class"
           fluid
           search
-          defaultValue="all"
+          // defaultValue={this.props.settings[0].value}
+          value={this.state.class}
           selection
-          options={classes}
+          options={this.props.settings[0].options}
+          onChange={this.dropdownChange.bind(this)}
         />
       </div>
     );
@@ -174,9 +191,14 @@ class DashboardBasicList extends React.Component {
           {this.renderMore(this.props.type)}
         </div>
         <SettingsModal
+          id={this.props.id}
           modalOpen={this.state.modalOpen}
           title={this.capFirstLetter(this.props.title)}
           closeSettingModal={this.closeSettingModal.bind(this)}
+          type={this.props.type}
+          list={this.props.list}
+          settings={this.props.settings}
+          updateSettings={this.updateSettings.bind(this)}
         />
       </div>
     );

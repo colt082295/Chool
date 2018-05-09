@@ -7,19 +7,6 @@ import { fetchNote } from '../../actions/noteActions';
 import s from './Note.css';
 
 class NoteFull extends React.Component {
-  // static propTypes = {
-  //   id: PropTypes.node.isRequired,
-  //   title: PropTypes.node.isRequired,
-  //   body: PropTypes.node,
-  //   items: PropTypes.instanceOf(Object),
-  //   date: PropTypes.node.isRequired,
-  // };
-
-  // static defaultProps = {
-  //   body: '',
-  //   items: {},
-  // };
-
   static propTypes = {
     note: PropTypes.instanceOf(Object).isRequired,
     params: PropTypes.instanceOf(Object).isRequired,

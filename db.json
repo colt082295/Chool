@@ -31,6 +31,7 @@
   ],
   "dashboard": [
     {
+      "id": 1,
       "type": "notes",
       "content": [
         {
@@ -129,9 +130,36 @@
           "class": "English",
           "date": "2018-04-27T13:46:28.325Z"
         }
+      ],
+      "settings": [
+        {
+          "type": "defaultClass",
+          "element": "dropdown",
+          "options": [
+            {
+              "key": "all",
+              "value": "all",
+              "text": "All"
+            },
+            {
+              "key": "english",
+              "value": "english",
+              "text": "English"
+            },
+            {
+              "key": "math",
+              "value": "math",
+              "text": "Math"
+            }
+          ],
+          "name": "Default class",
+          "description": "Choose the default class.",
+          "value": "english"
+        }
       ]
     },
     {
+      "id": 2,
       "type": "assignments",
       "content": [
         {
@@ -169,9 +197,36 @@
           "dueDate": "2018-04-27T13:46:28.325Z",
           "class": "Geography"
         }
+      ],
+      "settings": [
+        {
+          "type": "defaultClass",
+          "element": "dropdown",
+          "options": [
+            {
+              "key": "all",
+              "value": "all",
+              "text": "All"
+            },
+            {
+              "key": "english",
+              "value": "english",
+              "text": "English"
+            },
+            {
+              "key": "math",
+              "value": "math",
+              "text": "Math"
+            }
+          ],
+          "name": "Default class",
+          "description": "Choose the default class.",
+          "value": "english"
+        }
       ]
     },
     {
+      "id": 3,
       "type": "feeds",
       "content": [
         {
@@ -353,9 +408,75 @@
             }
           ]
         }
+      ],
+      "settings": [
+        {
+          "type": "defaultClass",
+          "element": "dropdown",
+          "options": [
+            {
+              "key": "all",
+              "value": "all",
+              "text": "All"
+            },
+            {
+              "key": "english",
+              "value": "english",
+              "text": "English"
+            },
+            {
+              "key": "math",
+              "value": "math",
+              "text": "Math"
+            }
+          ],
+          "name": "Default class",
+          "description": "Choose the default class.",
+          "value": "all"
+        },
+        {
+          "type": "contentTypes",
+          "element": "dropdown",
+          "options": [
+            {
+              "key": "all",
+              "value": "all",
+              "text": "All"
+            },
+            {
+              "key": "posts",
+              "value": "posts",
+              "text": "Posts"
+            },
+            {
+              "key": "grades",
+              "value": "grades",
+              "text": "Grades"
+            },
+            {
+              "key": "assignments",
+              "value": "assignments",
+              "text": "Assignments"
+            },
+            {
+              "key": "files",
+              "value": "files",
+              "text": "Files"
+            },
+            {
+              "key": "events",
+              "value": "events",
+              "text": "Events"
+            }
+          ],
+          "name": "Content types",
+          "description": "Choose the content types to display.",
+          "value": "grades"
+        }
       ]
     },
     {
+      "id": 4,
       "type": "grades",
       "content": [
         {
@@ -388,9 +509,36 @@
           "dueDate": "2018-04-27T13:46:28.325Z",
           "class": "Geography"
         }
+      ],
+      "settings": [
+        {
+          "type": "defaultClass",
+          "element": "dropdown",
+          "options": [
+            {
+              "key": "all",
+              "value": "all",
+              "text": "All"
+            },
+            {
+              "key": "english",
+              "value": "english",
+              "text": "English"
+            },
+            {
+              "key": "math",
+              "value": "math",
+              "text": "Math"
+            }
+          ],
+          "name": "Default class",
+          "description": "Choose the default class.",
+          "value": "all"
+        }
       ]
     },
     {
+      "id": 5,
       "type": "messages",
       "content": [
         {
@@ -436,6 +584,32 @@
               "time": "2018-04-27T13:46:28.325Z"
             }
           ]
+        }
+      ],
+      "settings": [
+        {
+          "type": "defaultClass",
+          "element": "dropdown",
+          "options": [
+            {
+              "key": "all",
+              "value": "all",
+              "text": "All"
+            },
+            {
+              "key": "english",
+              "value": "english",
+              "text": "English"
+            },
+            {
+              "key": "math",
+              "value": "math",
+              "text": "Math"
+            }
+          ],
+          "name": "Default class",
+          "description": "Choose the default class.",
+          "value": "english"
         }
       ]
     }

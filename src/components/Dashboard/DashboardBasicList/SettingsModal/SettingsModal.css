@@ -9,3 +9,13 @@
 :global(.ui.page.modals.transition.visible) {
   display: flex !important;
 }
+
+.item:not(:last-child) {
+  margin: 0 0 1em 0;
+}
+
+.itemDescription {
+  color: grey;
+  padding: 0 0 0.5em 1em;
+  margin: 0;
+}

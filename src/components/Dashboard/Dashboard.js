@@ -5,17 +5,25 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { connect } from 'react-redux';
 import DashboardBasicList from './DashboardBasicList/DashboardBasicList';
 import s from './Dashboard.css';
-import { fetchDashboard } from '../../actions/homeActions';
+import {
+  fetchDashboard,
+  updateBasicListSettings,
+} from '../../actions/homeActions';
 
 class Dashboard extends React.Component {
   static propTypes = {
     tiles: PropTypes.instanceOf(Array).isRequired,
     // fetching: PropTypes.bool.isRequired,
     fetchDashboard: PropTypes.func.isRequired,
+    updateBasicListSettings: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
     this.props.fetchDashboard();
+  }
+
+  updateSettings(id, settings) {
+    this.props.updateBasicListSettings(id, settings);
   }
 
   render() {
@@ -24,9 +32,12 @@ class Dashboard extends React.Component {
         {this.props.tiles.map((data, i) => (
           <DashboardBasicList
             key={i.toString()}
+            id={data.id}
             type={data.type}
             list={data.content}
             title={data.type}
+            settings={data.settings}
+            updateSettings={this.updateSettings.bind(this)}
           />
         ))}
       </div>
@@ -41,6 +52,7 @@ const mapStateToProps = (state, ownProps) => ({
   ...ownProps,
 });
 
-export default connect(mapStateToProps, { fetchDashboard })(
-  withStyles(s)(Dashboard),
-);
+export default connect(mapStateToProps, {
+  fetchDashboard,
+  updateBasicListSettings,
+})(withStyles(s)(Dashboard));
