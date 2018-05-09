@@ -154,7 +154,7 @@
           ],
           "name": "Default class",
           "description": "Choose the default class.",
-          "value": "english"
+          "value": "math"
         }
       ]
     },
@@ -221,7 +221,7 @@
           ],
           "name": "Default class",
           "description": "Choose the default class.",
-          "value": "english"
+          "value": "all"
         }
       ]
     },

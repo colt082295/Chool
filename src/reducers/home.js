@@ -33,22 +33,15 @@ export default function home(state = initialState, action) {
     /* eslint-disable no-case-declarations */
     case UPDATE_BASIC_LIST_SUCCESS:
       // Return the correct info after the Basic List settings were changed
-      // Refactor this
-      let newState = { ...state };
-      const newTiles = newState.tiles.map(tile => {
-        if (tile.id === action.payload.id) {
-          return {
-            ...tile,
-            settings: action.payload.settings,
-          };
-        }
-        return tile;
-      });
-      newState = {
+      return {
         ...state,
-        tiles: newTiles,
+        tiles: state.tiles.map(
+          tile =>
+            tile.id === action.payload.id
+              ? { ...tile, settings: action.payload.settings }
+              : tile,
+        ),
       };
-      return newState;
     default:
       return state;
   }
