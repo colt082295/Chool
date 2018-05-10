@@ -8,6 +8,7 @@ import grade from './grade';
 import message from './message';
 import messages from './messages';
 import note from './note';
+import addNote from './addNote';
 import notes from './notes';
 import classInfo from './class';
 import classes from './classes';
@@ -22,6 +23,7 @@ export default combineReducers({
   message,
   messages,
   note,
+  addNote,
   notes,
   classInfo,
   classes,

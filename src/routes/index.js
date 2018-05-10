@@ -49,6 +49,14 @@ const routes = {
       load: () => import(/* webpackChunkName: 'notes' */ './notes'),
     },
     {
+      path: '/note/:id',
+      load: () => import(/* webpackChunkName: 'note-full' */ './note-full'),
+    },
+    {
+      path: '/add-note',
+      load: () => import(/* webpackChunkName: 'add-note' */ './add-note'),
+    },
+    {
       path: '/profile',
       load: () => import(/* webpackChunkName: 'profile-me' */ './profile-me'),
     },
@@ -64,10 +72,6 @@ const routes = {
     {
       path: '/test/:id',
       load: () => import(/* webpackChunkName: 'test' */ './test'),
-    },
-    {
-      path: '/note/:id',
-      load: () => import(/* webpackChunkName: 'note-full' */ './note-full'),
     },
     {
       path: '/messages/:id',

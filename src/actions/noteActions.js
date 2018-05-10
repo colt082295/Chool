@@ -7,6 +7,9 @@ import {
   FETCH_NOTE_PENDING,
   FETCH_NOTE_SUCCESS,
   FETCH_NOTE_FAILURE,
+  ADD_NOTE_PENDING,
+  ADD_NOTE_SUCCESS,
+  ADD_NOTE_FAILURE,
 } from '../constants';
 
 export const fetchNotes = () => dispatch => {
@@ -48,6 +51,29 @@ export const fetchNote = params => dispatch => {
     .catch(err =>
       dispatch({
         type: FETCH_NOTE_FAILURE,
+        payload: err,
+      }),
+    );
+};
+
+export const addNote = noteObj => dispatch => {
+  dispatch({
+    type: ADD_NOTE_PENDING,
+  });
+  axios({
+    method: 'POST',
+    url: `http://localhost:3005/notes`,
+    data: noteObj,
+  })
+    .then(note =>
+      dispatch({
+        type: ADD_NOTE_SUCCESS,
+        payload: note.data,
+      }),
+    )
+    .catch(err =>
+      dispatch({
+        type: ADD_NOTE_FAILURE,
         payload: err,
       }),
     );
