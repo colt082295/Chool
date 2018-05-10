@@ -1,24 +1,33 @@
 import React from 'react';
-import { Checkbox } from 'semantic-ui-react';
+import { Checkbox, Icon } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import update from 'immutability-helper';
 import s from './NoteChecklist.css';
 
 class NoteChecklist extends React.Component {
-  state = {
-    list: [
-      {
-        checked: false,
-        label: 'The 1st one',
-        editing: false,
-      },
-      {
-        checked: true,
-        label: 'The second one',
-        editing: false,
-      },
-    ],
+  static propTypes = {
+    title: PropTypes.node.isRequired,
+    id: PropTypes.node.isRequired,
+    list: PropTypes.instanceOf(Array).isRequired,
+    titleChanged: PropTypes.func.isRequired,
+    taskChanged: PropTypes.func.isRequired,
+    taskToggled: PropTypes.func.isRequired,
+    // addTaskItem: PropTypes.func.isRequired,
   };
+
+  state = {
+    title: this.props.title,
+    list: this.props.list,
+  };
+
+  titleChange(id, e) {
+    this.props.titleChanged(e.currentTarget.value, id);
+  }
+
+  taskChange(checklistId, taskId, e) {
+    this.props.taskChanged(e.currentTarget.value, checklistId, taskId);
+  }
 
   checkboxLabelClick(index) {
     this.setState({
@@ -45,6 +54,7 @@ class NoteChecklist extends React.Component {
   }
 
   checkboxToggled(index, item, data) {
+    this.props.taskToggled(this.props.id, index);
     this.setState({
       list: update(this.state.list, {
         [index]: { checked: { $set: data.checked } },
@@ -58,10 +68,15 @@ class NoteChecklist extends React.Component {
         <input
           type="text"
           name="checkobx-input"
-          defaultValue={this.state.list[index].label}
+          defaultValue={
+            this.state.list[index].label
+              ? this.state.list[index].label
+              : 'Enter text'
+          }
           onBlur={this.checkboxLabelBlur.bind(this, index)}
           className={s.checkboxLabel}
           autoFocus // eslint-disable-line jsx-a11y/no-autofocus
+          onChange={this.taskChange.bind(this, this.props.id, index)}
         />
       );
     }
@@ -80,7 +95,12 @@ class NoteChecklist extends React.Component {
     return (
       <div className={s.checklist}>
         <div>
-          <input type="text" placeholder="Enter your checklist title..." />
+          <input
+            type="text"
+            placeholder="Enter your checklist title..."
+            defaultValue={this.state.title}
+            onChange={this.titleChange.bind(this, this.props.id)}
+          />
         </div>
         <div className={s.list}>
           {this.state.list.map((box, i) => (
@@ -92,6 +112,10 @@ class NoteChecklist extends React.Component {
               {this.renderCheckbox(i)}
             </div>
           ))}
+        </div>
+        {/* <div className={s.addListItem} onClick={this.props.addTaskItem()}> */}
+        <div>
+          <Icon name="plus" />
         </div>
       </div>
     );

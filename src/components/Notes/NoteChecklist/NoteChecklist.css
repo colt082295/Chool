@@ -14,6 +14,7 @@
 
 .checkbox {
   display: flex;
+  margin: 0.5em 0;
 }
 
 .checkboxLabel {

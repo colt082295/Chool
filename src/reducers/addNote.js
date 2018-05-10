@@ -7,7 +7,12 @@ import {
 const initialState = {
   adding: false,
   added: true,
-  note: {},
+  note: {
+    title: '',
+    body: '',
+    items: { comments: [], checklists: [] },
+    class: '',
+  },
   error: null,
 };
 
