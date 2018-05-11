@@ -211,14 +211,16 @@ class AddNote extends React.Component {
   //   // });
   // }
 
-  // submit(note) {
-  //   // this.props.addNote(note);
-  //   // Find best way to get the data from the comments and checklists components. Do I update redux on keystrokes? Seems there must be a better way. Look @ Redux Form. Maybe I keep track of the content+index in state in this component and prop functions run in the children to update the state.
-  //   // this.props.note.items.comments.map((comment, i) => {
-  //   //   console.log('comment:', comment);
-  //   // });
-  //   // console.log('STATE:', this.state);
-  // }
+  submit() {
+    // this.props.addNote(note);
+    // Find best way to get the data from the comments and checklists components. Do I update redux on keystrokes? Seems there must be a better way. Look @ Redux Form. Maybe I keep track of the content+index in state in this component and prop functions run in the children to update the state.
+    // this.props.note.items.comments.map((comment, i) => {
+    //   console.log('comment:', comment);
+    // });
+    /* eslint-disable no-console  */
+    console.log('STATE:', this.state);
+    /* eslint-enable no-console  */
+  }
 
   render() {
     const noteObj = {
