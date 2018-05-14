@@ -19,6 +19,7 @@ class ClassComponent extends React.Component {
     super(props);
     this.feedGrades = this.feedGrades.bind(this);
     this.feedAssignments = this.feedAssignments.bind(this);
+    this.sortedStudents = this.sortedStudents.bind(this);
   }
 
   /* eslint-disable class-methods-use-this */

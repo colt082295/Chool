@@ -28,32 +28,32 @@ class DashboardBasicList extends React.Component {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  openSettingsModal() {
+  openSettingsModal = () => {
     this.setState({
       modalOpen: true,
     });
-  }
+  };
 
-  closeSettingModal() {
+  closeSettingModal = () => {
     this.setState({
       modalOpen: false,
     });
-  }
+  };
 
-  dropdownChange(event, data) {
+  dropdownChange = () => (event, data) => {
     // Set the dropdown value.
     this.setState({
       class: data.value,
     });
-  }
+  };
 
-  updateSettings(id, settings) {
+  updateSettings = () => (id, settings) => {
     // Set the dropdown value.
     this.setState({
       class: settings[0].value,
     });
     this.props.updateSettings(id, settings);
-  }
+  };
 
   renderBlock(type, list, i) {
     if (type === 'assignments') {
@@ -143,7 +143,7 @@ class DashboardBasicList extends React.Component {
             value={this.state.class}
             selection
             options={this.props.settings[0].options}
-            onChange={this.dropdownChange.bind(this)}
+            onChange={this.dropdownChange()}
           />
           <Link to="/notes" className={s.addNote}>
             <Icon name="plus" />
@@ -161,7 +161,7 @@ class DashboardBasicList extends React.Component {
           value={this.state.class}
           selection
           options={this.props.settings[0].options}
-          onChange={this.dropdownChange.bind(this)}
+          onChange={this.dropdownChange()}
         />
       </div>
     );
@@ -177,10 +177,7 @@ class DashboardBasicList extends React.Component {
           <div className={s.top}>
             <h3 className={s.title}>{this.capFirstLetter(this.props.title)}</h3>
             <div className={s.options}>
-              <Icon
-                name="ellipsis vertical"
-                onClick={this.openSettingsModal.bind(this)}
-              />
+              <Icon name="ellipsis vertical" onClick={this.openSettingsModal} />
             </div>
           </div>
           <div className={s.items}>
@@ -194,11 +191,11 @@ class DashboardBasicList extends React.Component {
           id={this.props.id}
           modalOpen={this.state.modalOpen}
           title={this.capFirstLetter(this.props.title)}
-          closeSettingModal={this.closeSettingModal.bind(this)}
+          closeSettingModal={this.closeSettingModal}
           type={this.props.type}
           list={this.props.list}
           settings={this.props.settings}
-          updateSettings={this.updateSettings.bind(this)}
+          updateSettings={this.updateSettings()}
         />
       </div>
     );

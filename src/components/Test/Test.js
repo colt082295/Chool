@@ -22,7 +22,7 @@ class Test extends React.Component {
     nextBtnDisabled: false,
   };
 
-  prevQuestion() {
+  prevQuestion = () => {
     if (this.state.currentIndex > 0) {
       this.setState({
         currentIndex: this.state.currentIndex - 1,
@@ -39,9 +39,9 @@ class Test extends React.Component {
         prevBtnDisabled: true,
       });
     }
-  }
+  };
 
-  nextQuestion() {
+  nextQuestion = () => {
     if (this.state.currentIndex + 1 < this.state.questions.length - 1) {
       this.setState({
         currentIndex: this.state.currentIndex + 1,
@@ -56,17 +56,13 @@ class Test extends React.Component {
         prevBtnDisabled: false,
       });
     }
-  }
+  };
 
-  updateAnswer(answer) {
+  updateAnswer = answer => {
     this.setState({
       currentAnswer: answer,
     });
-  }
-
-  // testFinished() {
-  //   console.log('You finished the test!');
-  // }
+  };
 
   renderAnswer() {
     const { currentIndex } = this.state;
@@ -78,7 +74,7 @@ class Test extends React.Component {
         <TestMultipleChoiceComponent
           choices={this.state.questions[currentIndex].choices}
           answer={this.state.questions[currentIndex].answer}
-          updateAnswer={this.updateAnswer.bind(this)}
+          updateAnswer={this.updateAnswer}
           currentAnswer={this.state.currentAnswer}
         />
       );
@@ -133,7 +129,7 @@ class Test extends React.Component {
             <Button
               content="Previous"
               disabled={this.state.prevBtnDisabled}
-              onClick={this.prevQuestion.bind(this)}
+              onClick={this.prevQuestion}
             />
           </div>
           <div className={s.next}>{this.renderNext()}</div>

@@ -10,20 +10,35 @@ class Header extends React.Component {
     searchFocus: false,
   };
 
-  searchFocused() {
+  searchFocused = () => {
     this.setState({ searchFocus: true });
-  }
+  };
 
-  searchBlurred() {
+  // searchFocused() {
+  //   this.setState({ searchFocus: true });
+  // }
+
+  searchBlurred = () => {
     this.setState({ searchFocus: false });
-  }
+  };
 
-  isFocused() {
+  // searchBlurred() {
+  //   this.setState({ searchFocus: false });
+  // }
+
+  isFocused = () => {
     if (this.state.searchFocus) {
       return s.searchFocus;
     }
     return '';
-  }
+  };
+
+  // isFocused() {
+  //   if (this.state.searchFocus) {
+  //     return s.searchFocus;
+  //   }
+  //   return '';
+  // }
 
   render() {
     return (
@@ -38,8 +53,8 @@ class Header extends React.Component {
                 className="prompt"
                 type="text"
                 placeholder="Search classes, assignments, etc"
-                onFocus={this.searchFocused.bind(this)}
-                onBlur={this.searchBlurred.bind(this)}
+                onFocus={this.searchFocused}
+                onBlur={this.searchBlurred}
               />
               <i className="search link icon" />
               <div className="results" />

@@ -22,9 +22,9 @@ class Dashboard extends React.Component {
     this.props.fetchDashboard();
   }
 
-  updateSettings(id, settings) {
+  updateSettings = () => (id, settings) => {
     this.props.updateBasicListSettings(id, settings);
-  }
+  };
 
   render() {
     return (
@@ -37,7 +37,7 @@ class Dashboard extends React.Component {
             list={data.content}
             title={data.type}
             settings={data.settings}
-            updateSettings={this.updateSettings.bind(this)}
+            updateSettings={this.updateSettings}
           />
         ))}
       </div>

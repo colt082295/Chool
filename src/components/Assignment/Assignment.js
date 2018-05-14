@@ -19,31 +19,34 @@ class Assignment extends React.Component {
     grade: '',
   };
 
-  state = {
-    dueDate: moment(this.props.dueDate).format('MMM Do YY'),
-    dueDatePassed: moment(this.props.dueDate).isBefore(new Date()),
-    letterGrade: this.gradeLetter(),
-    classNameLowerCase: this.props.classInfo
-      ? this.props.classInfo.toLowerCase()
-      : null,
-    colorKey: {
-      'A+': 'rgb(27, 189, 27)',
-      A: 'rgb(37, 152, 37)',
-      'A-': 'rgb(12, 121, 12)',
-      'B+': '#3e9dff',
-      B: '#2f86e0',
-      'B-': '#1a67b7',
-      'C+': '#fffc8f',
-      C: '#d2cf5f',
-      'C-': '#bfbb28',
-      'D+': '#ffcb6b',
-      D: '#e0ad4f',
-      'D-': '#bb7e0c',
-      F: '#ff0000',
-    },
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      dueDate: moment(this.props.dueDate).format('MMM Do YY'),
+      dueDatePassed: moment(this.props.dueDate).isBefore(new Date()),
+      letterGrade: this.gradeLetter(),
+      classNameLowerCase: this.props.classInfo
+        ? this.props.classInfo.toLowerCase()
+        : null,
+      colorKey: {
+        'A+': 'rgb(27, 189, 27)',
+        A: 'rgb(37, 152, 37)',
+        'A-': 'rgb(12, 121, 12)',
+        'B+': '#3e9dff',
+        B: '#2f86e0',
+        'B-': '#1a67b7',
+        'C+': '#fffc8f',
+        C: '#d2cf5f',
+        'C-': '#bfbb28',
+        'D+': '#ffcb6b',
+        D: '#e0ad4f',
+        'D-': '#bb7e0c',
+        F: '#ff0000',
+      },
+    };
+  }
 
-  gradeLetter() {
+  gradeLetter = () => {
     const { grade } = this.props;
     if (grade >= 97) {
       return 'A+';
@@ -71,14 +74,14 @@ class Assignment extends React.Component {
       return 'D-';
     }
     return 'F';
-  }
+  };
 
-  datePassed() {
+  datePassed = () => {
     if (this.state.dueDatePassed) {
       return s.datePassed;
     }
     return '';
-  }
+  };
 
   render() {
     return (
@@ -116,7 +119,7 @@ class Assignment extends React.Component {
         </div>
         <div className={s.dateInfo}>
           Due:
-          <span className={`${s.date} ${this.datePassed()}`}>
+          <span className={`${s.date} ${this.datePassed}`}>
             {this.state.dueDate}
           </span>
         </div>

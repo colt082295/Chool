@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Textarea from 'react-textarea-autosize';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import NoteComment from '../NoteComment/NoteComment';
-import NoteChecklist from '../NoteChecklist/NoteChecklist';
+// import NoteChecklist from '../NoteChecklist/NoteChecklist';
 // import Link from '../Link/Link';
 import s from './NoteFull.css';
 
@@ -27,13 +27,13 @@ class NoteFull extends React.Component {
     editTitle: false,
   };
 
-  titleClick() {
+  titleClick = () => {
     this.setState({
       editTitle: true,
     });
-  }
+  };
 
-  titleBlur(e) {
+  titleBlur = () => e => {
     const prevTitle = this.props.title;
     const newTitle = e.currentTarget.value;
     if (prevTitle !== newTitle) {
@@ -44,9 +44,9 @@ class NoteFull extends React.Component {
     this.setState({
       editTitle: false,
     });
-  }
+  };
 
-  bodyBlur(e) {
+  bodyBlur = () => e => {
     const prevBody = this.state.body;
     const newBody = e.currentTarget.value;
     if (prevBody !== newBody) {
@@ -54,7 +54,9 @@ class NoteFull extends React.Component {
         body: newBody,
       });
     }
-  }
+  };
+
+  commentBodyChanged = () => () => {};
 
   renderTitle() {
     if (this.state.editTitle) {
@@ -63,17 +65,13 @@ class NoteFull extends React.Component {
           type="text"
           name="title-input"
           defaultValue={this.state.title}
-          onBlur={this.titleBlur.bind(this)}
+          onBlur={this.titleBlur}
           className={s.title}
         />
       );
     }
     return (
-      <div
-        role="presentation"
-        onClick={this.titleClick.bind(this)}
-        className={s.title}
-      >
+      <div role="presentation" onClick={this.titleClick} className={s.title}>
         {this.state.title}
       </div>
     );
@@ -91,7 +89,7 @@ class NoteFull extends React.Component {
               placeholder="Give me your notes."
               className={s.textArea}
               defaultValue={this.state.body}
-              onBlur={this.bodyBlur.bind(this)}
+              onBlur={this.bodyBlur()}
             />
           </div>
         </div>
@@ -103,13 +101,13 @@ class NoteFull extends React.Component {
                     body={comment.body}
                     date={new Date()}
                     key={i.toString()}
+                    id={i.toString()}
+                    bodyChanged={this.commentBodyChanged}
                   />
                 ))
               : ''}
           </div>
-          <div>
-            <NoteChecklist />
-          </div>
+          <div>{/* <NoteChecklist /> */}</div>
         </div>
       </div>
     );

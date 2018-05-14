@@ -21,21 +21,53 @@ class NoteChecklist extends React.Component {
     list: this.props.list,
   };
 
-  titleChange(id, e) {
+  // titleChange(id, e) {
+  //   this.props.titleChanged(e.currentTarget.value, id);
+  // }
+
+  titleChange = id => e => {
     this.props.titleChanged(e.currentTarget.value, id);
-  }
+  };
 
-  taskChange(checklistId, taskId, e) {
+  // taskChange(checklistId, taskId, e) {
+  //   this.props.taskChanged(e.currentTarget.value, checklistId, taskId);
+  // }
+
+  taskChange = (checklistId, taskId) => e => {
     this.props.taskChanged(e.currentTarget.value, checklistId, taskId);
-  }
+  };
 
-  checkboxLabelClick(index) {
+  // checkboxLabelClick(index) {
+  //   this.setState({
+  //     list: update(this.state.list, { [index]: { editing: { $set: true } } }),
+  //   });
+  // }
+
+  checkboxLabelClick = index => () => {
     this.setState({
       list: update(this.state.list, { [index]: { editing: { $set: true } } }),
     });
-  }
+  };
 
-  checkboxLabelBlur(index, e) {
+  // checkboxLabelBlur(index, e) {
+  //   const prevLabel = this.state.list[index].label;
+  //   const newLabel = e.currentTarget.value;
+  //   if (prevLabel !== newLabel) {
+  //     this.setState({
+  //       list: update(this.state.list, {
+  //         [index]: { label: { $set: newLabel }, editing: { $set: false } },
+  //       }),
+  //     });
+  //   } else {
+  //     this.setState({
+  //       list: update(this.state.list, {
+  //         [index]: { editing: { $set: false } },
+  //       }),
+  //     });
+  //   }
+  // }
+
+  checkboxLabelBlur = index => e => {
     const prevLabel = this.state.list[index].label;
     const newLabel = e.currentTarget.value;
     if (prevLabel !== newLabel) {
@@ -51,16 +83,25 @@ class NoteChecklist extends React.Component {
         }),
       });
     }
-  }
+  };
 
-  checkboxToggled(index, item, data) {
+  // checkboxToggled(index, item, data) {
+  //   this.props.taskToggled(this.props.id, index);
+  //   this.setState({
+  //     list: update(this.state.list, {
+  //       [index]: { checked: { $set: data.checked } },
+  //     }),
+  //   });
+  // }
+
+  checkboxToggled = index => (item, data) => {
     this.props.taskToggled(this.props.id, index);
     this.setState({
       list: update(this.state.list, {
         [index]: { checked: { $set: data.checked } },
       }),
     });
-  }
+  };
 
   renderCheckbox(index) {
     if (this.state.list[index].editing) {
@@ -76,14 +117,14 @@ class NoteChecklist extends React.Component {
           onBlur={this.checkboxLabelBlur.bind(this, index)}
           className={s.checkboxLabel}
           autoFocus // eslint-disable-line jsx-a11y/no-autofocus
-          onChange={this.taskChange.bind(this, this.props.id, index)}
+          onChange={this.taskChange(this.props.id, index)}
         />
       );
     }
     return (
       <div
         role="presentation"
-        onClick={this.checkboxLabelClick.bind(this, index)}
+        onClick={this.checkboxLabelClick(index)}
         className={s.checkboxLabel}
       >
         {this.state.list[index].label}
@@ -99,14 +140,14 @@ class NoteChecklist extends React.Component {
             type="text"
             placeholder="Enter your checklist title..."
             defaultValue={this.state.title}
-            onChange={this.titleChange.bind(this, this.props.id)}
+            onChange={this.titleChange(this.props.id)}
           />
         </div>
         <div className={s.list}>
           {this.state.list.map((box, i) => (
             <div className={s.checkbox} key={i.toString()}>
               <Checkbox
-                onChange={this.checkboxToggled.bind(this, i)}
+                onChange={this.checkboxToggled(i)}
                 defaultChecked={box.checked}
               />
               {this.renderCheckbox(i)}

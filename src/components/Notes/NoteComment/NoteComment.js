@@ -17,9 +17,9 @@ class NoteComment extends React.Component {
     date: this.props.date,
   };
 
-  bodyChange(id, e) {
+  bodyChange = id => e => {
     this.props.bodyChanged(e.currentTarget.value, id);
-  }
+  };
 
   render() {
     return (
@@ -29,7 +29,7 @@ class NoteComment extends React.Component {
           className={s.body}
           defaultValue={this.props.body}
           // onBlur={this.bodyBlur.bind(this)}
-          onChange={this.bodyChange.bind(this, this.props.id)}
+          onChange={this.bodyChange(this.props.id)}
           rows="1"
         />
         <div>

@@ -32,44 +32,33 @@ class AddNote extends React.Component {
     checklists: PropTypes.instanceOf(Array).isRequired,
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    title: '',
+    body: '',
+    class: '',
+    comments: [],
+    checklists: [],
+  };
 
-    this.titleChange = this.titleChange.bind(this);
-    this.bodyChange = this.bodyChange.bind(this);
-    this.classChange = this.classChange.bind(this);
-    this.addComment = this.addComment.bind(this);
-    this.addChecklist = this.addChecklist.bind(this);
-    // this.commentBodyChanged = this.commentBodyChanged.bind(this);
-
-    this.state = {
-      title: '',
-      body: '',
-      class: '',
-      comments: [],
-      checklists: [],
-    };
-  }
-
-  titleChange(e) {
+  titleChange = e => {
     this.setState({
       title: e.currentTarget.value,
     });
-  }
+  };
 
-  bodyChange(e) {
+  bodyChange = e => {
     this.setState({
       body: e.currentTarget.value,
     });
-  }
+  };
 
-  classChange(e, data) {
+  classChange = (e, data) => {
     this.setState({
       class: data.value,
     });
-  }
+  };
 
-  addComment() {
+  addComment = () => {
     const newComments = [
       ...this.state.comments,
       {
@@ -81,9 +70,9 @@ class AddNote extends React.Component {
     this.setState({
       comments: newComments,
     });
-  }
+  };
 
-  commentBodyChanged(text, id) {
+  commentBodyChanged = () => (text, id) => {
     const newComments = this.state.comments.map((comment, i) => {
       if (id === i) {
         return {
@@ -97,9 +86,9 @@ class AddNote extends React.Component {
     this.setState({
       comments: newComments,
     });
-  }
+  };
 
-  checkListTitleChanged(text, id) {
+  checkListTitleChanged = () => (text, id) => {
     const newChecklists = this.state.checklists.map((checklist, i) => {
       if (id === i) {
         return {
@@ -113,9 +102,9 @@ class AddNote extends React.Component {
     this.setState({
       checklists: newChecklists,
     });
-  }
+  };
 
-  checkListTaskChanged(text, checklistId, taskId) {
+  checkListTaskChanged = () => (text, checklistId, taskId) => {
     const newChecklists = this.state.checklists.map((checklist, i) => {
       if (checklistId === i) {
         return {
@@ -137,9 +126,9 @@ class AddNote extends React.Component {
     this.setState({
       checklists: newChecklists,
     });
-  }
+  };
 
-  checkListTaskToggled(checklistId, taskId) {
+  checkListTaskToggled = () => (checklistId, taskId) => {
     const newChecklists = this.state.checklists.map((checklist, i) => {
       if (checklistId === i) {
         return {
@@ -162,9 +151,9 @@ class AddNote extends React.Component {
     this.setState({
       checklists: newChecklists,
     });
-  }
+  };
 
-  addChecklist() {
+  addChecklist = () => {
     const newChecklists = [
       ...this.state.checklists,
       {
@@ -182,7 +171,7 @@ class AddNote extends React.Component {
     this.setState({
       checklists: newChecklists,
     });
-  }
+  };
 
   // taskItemAdd(id) {
   //   /*
@@ -211,16 +200,9 @@ class AddNote extends React.Component {
   //   // });
   // }
 
-  submit() {
-    // this.props.addNote(note);
-    // Find best way to get the data from the comments and checklists components. Do I update redux on keystrokes? Seems there must be a better way. Look @ Redux Form. Maybe I keep track of the content+index in state in this component and prop functions run in the children to update the state.
-    // this.props.note.items.comments.map((comment, i) => {
-    //   console.log('comment:', comment);
-    // });
-    /* eslint-disable no-console  */
-    console.log('STATE:', this.state);
-    /* eslint-enable no-console  */
-  }
+  submit = () => () => {
+    // console.log('STATE:', this.state);
+  };
 
   render() {
     const noteObj = {
@@ -237,7 +219,7 @@ class AddNote extends React.Component {
     /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions  */
     return (
       <div>
-        <Form onSubmit={this.submit.bind(this, noteObj)}>
+        <Form onSubmit={this.submit(noteObj)}>
           <Form.Field>
             <label htmlFor="title">
               Title{' '}
@@ -276,7 +258,7 @@ class AddNote extends React.Component {
                 body={comment.body}
                 date={comment.date}
                 key={i.toString()}
-                bodyChanged={this.commentBodyChanged.bind(this)}
+                bodyChanged={this.commentBodyChanged()}
                 id={i}
               />
             ))}
@@ -288,10 +270,10 @@ class AddNote extends React.Component {
                 list={checklist.list}
                 key={i.toString()}
                 id={i}
-                titleChanged={this.checkListTitleChanged.bind(this)}
-                taskChanged={this.checkListTaskChanged.bind(this)}
-                taskToggled={this.checkListTaskToggled.bind(this)}
-                addTaskItem={this.taskItemAdd.bind(this)}
+                titleChanged={this.checkListTitleChanged()}
+                taskChanged={this.checkListTaskChanged()}
+                taskToggled={this.checkListTaskToggled()}
+                addTaskItem={this.taskItemAdd}
               />
             ))}
           </div>

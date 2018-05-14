@@ -25,11 +25,11 @@ class Layout extends React.Component {
     headerNotifications: [{ type: 'message' }],
   };
 
-  changeSidebarActiveItem(name) {
+  changeSidebarActiveItem = () => name => {
     this.setState({
       sidebarActiveItem: name,
     });
-  }
+  };
 
   render() {
     return (
@@ -38,7 +38,7 @@ class Layout extends React.Component {
         <div className={s.body}>
           <Sidebar
             activeItem={this.state.sidebarActiveItem}
-            changeActiveItem={this.changeSidebarActiveItem.bind(this)}
+            changeActiveItem={this.changeSidebarActiveItem()}
           />
           <div className={s.main}>{this.props.children}</div>
         </div>
